@@ -3,7 +3,7 @@ Technologies to use:
 1. Java 8 or 11
 2. Spring Boot
 3. Spring Data JPA
-4. PostgreSQL or MongoDB
+4. MySQL
 5. Maven
 6. Swagger and Swagger UI
 7. Git

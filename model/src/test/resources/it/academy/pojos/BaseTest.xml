@@ -1,0 +1,169 @@
+<dataset>
+
+    <DEPARTMENT     ID="402880ec780f061f01780f06225b0000"
+                    DEPARTMENT_NAME="Top Managers"
+                    DATE_OF_FORMATION="2020-02-02"
+                    COMMON_INFO="Nothing special, just a heap of managers"
+                    PURPOSE="Direction, of course"
+                    MISSION="Prosperity of our company"
+    />
+
+    <DEPARTMENT     ID="402880ec780f061f01780f0622680001"
+                    DEPARTMENT_NAME="Top-Top Managers"
+                    DATE_OF_FORMATION="2020-02-02"
+                    COMMON_INFO="Nothing special, just a couple or two of couriers"
+                    PURPOSE="Products delivery"
+                    MISSION="Customer happiness"
+    />
+
+    <DEPARTMENT     ID="402880ec780f061f01780f0622680002"
+                    DEPARTMENT_NAME="Production Department"
+                    DATE_OF_FORMATION="2020-02-02"
+                    COMMON_INFO="Nothing special, just one product manufacturer"
+                    PURPOSE="Products production"
+                    MISSION="Productive  production of the product"
+    />
+
+    <DEPARTMENT     ID="402880ec780f061f01780f0622680003"
+                    DEPARTMENT_NAME="Marketing Department"
+                    DATE_OF_FORMATION="2020-02-02"
+                    COMMON_INFO="Nothing special, just a dozen or more marketers"
+                    PURPOSE="Marketing, sure thing"
+                    MISSION="Leave a client without money"
+    />
+
+
+
+    <EMPLOYEE       ID="402880ec780f061f01780f0622690007"
+                    NAME="Natalia"
+                    PATRONYMIC="Petrovna"
+                    SURNAME="Ivanova"
+                    DATE_OF_BIRTH="2001-01-01"
+                    DEPARTMENT_ID="402880ec780f061f01780f0622680001"
+    />
+
+    <EMPLOYEE       ID="402880ec780f061f01780f0622690008"
+                    NAME="Vasili"
+                    PATRONYMIC="Nikitich"
+                    SURNAME="Levashov"
+                    DATE_OF_BIRTH="2001-01-01"
+                    DEPARTMENT_ID="402880ec780f061f01780f0622680001"
+    />
+
+    <EMPLOYEE       ID="402880ec780f061f01780f0622690009"
+                    NAME="Aleksandr"
+                    PATRONYMIC="Batskovich"
+                    SURNAME="Semipolak"
+                    DATE_OF_BIRTH="2001-01-01"
+                    DEPARTMENT_ID="402880ec780f061f01780f0622680002"
+    />
+
+    <EMPLOYEE       ID="402880ec780f061f01780f0622690010"
+                    NAME="Arsen"
+                    PATRONYMIC="Begomych"
+                    SURNAME="Dostavlian"
+                    DATE_OF_BIRTH="2001-01-01"
+                    DEPARTMENT_ID="402880ec780f061f01780f0622680001"
+    />
+
+    <EMPLOYEE       ID="402880ec780f061f01780f0622690011"
+                    NAME="Gregor"
+                    PATRONYMIC="Vahtangovich"
+                    SURNAME="Zashibidze"
+                    DATE_OF_BIRTH="2001-01-01"
+                    DEPARTMENT_ID="402880ec780f061f01780f06225b0000"
+    />
+
+    <EMPLOYEE       ID="402880ec780f061f01780f0622690012"
+                    NAME="Nika"
+                    PATRONYMIC="Sergeevna"
+                    SURNAME="Kutko"
+                    DATE_OF_BIRTH="2001-01-01"
+                    DEPARTMENT_ID="402880ec780f061f01780f06225b0000"
+    />
+
+    <EMAILADDRESS ID="402880ec780f061f01780f0622690051"
+                  EMAIL="wnhborq@outlook.com"
+                  EMAIL_CATEGORY="OFFICIAL"
+                  EMPLOYEE_ID="402880ec780f061f01780f0622690007"
+    />
+
+    <EMAILADDRESS ID="402880ec780f061f01780f0622690052"
+                  EMAIL="gq@yandex.ru"
+                  EMAIL_CATEGORY="OFFICIAL"
+                  EMPLOYEE_ID="402880ec780f061f01780f0622690008"
+    />
+
+    <EMAILADDRESS ID="402880ec780f061f01780f0622690053"
+                  EMAIL="ic0pu@outlook.com"
+                  EMAIL_CATEGORY="OFFICIAL"
+                  EMPLOYEE_ID="402880ec780f061f01780f0622690009"
+    />
+
+    <PHONE_NUMBER ID="402880ec780f061f01780f0622690098"
+                  PHONE_NUMBER="375(85)424-55-21"
+                  PHONE_NUMBER_CATEGORY="OFFICIAL"
+                  PHONE_OPERATOR="MTS"
+                  DEPARTMENT_ID="402880ec780f061f01780f06225b0000"
+                  EMPLOYEE_ID="402880ec780f061f01780f0622690007"
+    />
+
+    <PHONE_NUMBER ID="402880ec780f061f01780f0622690099"
+                  PHONE_NUMBER="375(20)472-60-04"
+                  PHONE_NUMBER_CATEGORY="OFFICIAL"
+                  PHONE_OPERATOR="BELTELECOM"
+                  EMPLOYEE_ID="402880ec780f061f01780f0622690008"
+    />
+
+    <PHONE_NUMBER ID="402880ec780f061f01780f0622690100"
+                  PHONE_NUMBER="375(55)940-46-23"
+                  PHONE_NUMBER_CATEGORY="OFFICIAL"
+                  PHONE_OPERATOR="LIFE"
+                  EMPLOYEE_ID="402880ec780f061f01780f0622690009"
+    />
+
+    <PHONE_NUMBER ID="402880ec780f061f01780f0622690101"
+                  PHONE_NUMBER="375(78)130-45-16"
+                  PHONE_NUMBER_CATEGORY="OFFICIAL"
+                  PHONE_OPERATOR="LIFE"
+                  EMPLOYEE_ID="402880ec780f061f01780f0622690010"
+    />
+
+    <PHONE_NUMBER ID="402880ec780f061f01780f0622690102"
+                  PHONE_NUMBER="375(22)825-34-08"
+                  PHONE_NUMBER_CATEGORY="OFFICIAL"
+                  PHONE_OPERATOR="OTHER"
+                  EMPLOYEE_ID="402880ec780f061f01780f0622690011"
+    />
+
+    <POSITION     ID="24"
+                  NAME="Courier"
+                  PURPOSE="Delivery"
+                  EMPLOYEE_ID="402880ec780f061f01780f0622690007"
+    />
+
+    <POSITION     ID="25"
+                  NAME="Courier"
+                  PURPOSE="Delivery"
+                  EMPLOYEE_ID="402880ec780f061f01780f0622690008"
+    />
+
+    <POSITION     ID="23"
+                  NAME="Workman"
+                  PURPOSE="Product production"
+                  EMPLOYEE_ID="402880ec780f061f01780f0622690009"
+    />
+
+    <POSITION     ID="26"
+                  NAME="Courier"
+                  PURPOSE="Delivery"
+                  EMPLOYEE_ID="402880ec780f061f01780f0622690010"
+    />
+
+    <POSITION     ID="1"
+                  NAME="Director"
+                  PURPOSE="Direction"
+                  EMPLOYEE_ID="402880ec780f061f01780f0622690011"
+    />
+
+</dataset>
