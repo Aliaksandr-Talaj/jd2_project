@@ -1,5 +1,6 @@
 package it.academy.dao;
 
+import it.academy.dao.interfaces.DepartmentDao;
 import it.academy.pojos.Department;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,7 +21,7 @@ public class DepartmentDaoImpl implements DepartmentDao {
     }
 
     @Override
-    @Transactional(readOnly = true)
+    @Transactional
     public List<Department> getAllDepartments() {
         return sessionFactory
                 .getCurrentSession()
@@ -48,14 +49,13 @@ public class DepartmentDaoImpl implements DepartmentDao {
     @Transactional
     public boolean deleteDepartment(String id) {
 
-        Department department = sessionFactory
-                .getCurrentSession()
-                .find(Department.class, id);
+        Department department = getDepartment(id);
+
         sessionFactory.getCurrentSession().delete(department);
         department = sessionFactory
                 .getCurrentSession()
                 .find(Department.class, id);
-        return (department != null);
+        return (department == null);
 
     }
 

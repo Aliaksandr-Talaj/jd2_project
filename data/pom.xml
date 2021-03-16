@@ -43,30 +43,12 @@
             <artifactId>mysql-connector-java</artifactId>
             <version>8.0.23</version>
         </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-test</artifactId>
+            <version>5.3.3</version>
+            <scope>test</scope>
+        </dependency>
     </dependencies>
 
-<build>
-    <plugins>
-        <!--<plugin>
-            <groupId>org.liquibase</groupId>
-            <artifactId>liquibase-maven-plugin</artifactId>
-            <version>3.5.3</version>
-            <executions>
-                <execution>
-                    <phase>process-resources</phase>
-                    <goals>
-                        <goal>update</goal>
-                    </goals>
-                    <configuration>
-                        <changeLogFile>src/main/resources/changelog-project.xml</changeLogFile>
-                        <driver>com.mysql.cj.jdbc.Driver</driver>
-                        <url>jdbc:mysql://localhost:3306/project?serverTimezone=UTC&amp;createDatabaseIfNotExist=true</url>
-                        <username>root</username>
-                        <password>root</password>
-                    </configuration>
-                </execution>
-            </executions>
-        </plugin> -->
-    </plugins>
-</build>
 </project>

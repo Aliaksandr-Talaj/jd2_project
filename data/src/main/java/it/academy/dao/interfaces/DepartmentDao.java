@@ -1,4 +1,4 @@
-package it.academy.dao;
+package it.academy.dao.interfaces;
 
 import it.academy.pojos.Department;
 

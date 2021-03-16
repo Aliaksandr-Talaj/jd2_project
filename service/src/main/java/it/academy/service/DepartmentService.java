@@ -1,9 +1,11 @@
 package it.academy.service;
 
-import it.academy.dao.DepartmentDao;
-import it.academy.dao.EmployeeDao;
+import it.academy.dao.interfaces.DepartmentDao;
+import it.academy.dao.interfaces.EmployeeDao;
+import it.academy.dao.interfaces.PhoneNumberDao;
 import it.academy.pojos.Department;
 import it.academy.pojos.Employee;
+import it.academy.pojos.PhoneNumber;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -16,17 +18,11 @@ public class DepartmentService {
     DepartmentDao departmentDao;
     @Autowired
     EmployeeDao employeeDao;
+    @Autowired
+    PhoneNumberDao phoneNumberDao;
 
 
     public List<Department> findAllDepartments() {
-
-//        List<DepartmentWithEmployeesDto> departmentWithEmployeesDtoList = new ArrayList<>();
-//        List<Department> departments = departmentDao.getAllDepartments();
-//
-//        for (Department department : departments) {
-//            List<Employee> employees = employeeDao.getAllEmployeesInDepartment(department.getId());
-//            departmentWithEmployeesDtoList.add(new DepartmentWithEmployeesDto(department, employees));
-//        }
         return departmentDao.getAllDepartments();
     }
 
@@ -38,14 +34,21 @@ public class DepartmentService {
         return departmentDao.createDepartment(department);
     }
 
+    public void updateDepartment(Department department) {
+        departmentDao.updateDepartment(department);
+    }
+
     public boolean deleteDepartment(String depId) {
 
         List<Employee> employees = employeeDao.getAllEmployeesInDepartment(depId);
+        employees.forEach(p -> {
+            p.setDepartment(null);
+            employeeDao.updateEmployee(p);
+        });
 
-        for (Employee employee : employees) {
-            employee.setDepartment(null);
-            employeeDao.updateEmployee(employee);
-        }
+        List<PhoneNumber> phoneNumbers = phoneNumberDao.getPhoneNumbersOfDepartment(depId);
+        phoneNumbers.forEach(p -> p.setDepartment(null));
+
         return departmentDao.deleteDepartment(depId);
     }
 }

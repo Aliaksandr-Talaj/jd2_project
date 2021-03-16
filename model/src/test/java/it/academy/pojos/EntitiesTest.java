@@ -7,12 +7,11 @@ import org.junit.Test;
 import java.io.Serializable;
 import java.sql.Date;
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.List;
 
 import static org.junit.Assert.*;
 
-public class DepartmentTest extends BaseTest {
+public class EntitiesTest extends BaseTest {
 
 
     @Test
@@ -52,7 +51,7 @@ public class DepartmentTest extends BaseTest {
         employee.setDepartment(department);
         employee.setDateOfEmployment(new Date(112, 12, 12));
         employee.setDateOfBirth(new Date(82, 12, 12));
-        employee.setEmailAddress(new HashSet<EmailAddress>());
+        employee.setEmailAddress(new ArrayList<EmailAddress>());
 
         //When
         Session session = factory.openSession();
@@ -172,9 +171,12 @@ public class DepartmentTest extends BaseTest {
         //When:
         Session session = factory.openSession();
         Department department = session.get(Department.class, uuid);
-        List<PhoneNumber> phoneNumbers = session
-                .createQuery("from PhoneNumber where department_ID='" + uuid + "'", PhoneNumber.class)
-                .list();
+        department.setPhoneNumber(null);
+        department.setEmployees(null);
+        List<PhoneNumber> phoneNumbers =
+                session
+                        .createQuery("from PhoneNumber where department_ID='" + uuid + "'", PhoneNumber.class)
+                        .list();
         phoneNumbers.forEach(p -> p.setDepartment(null));
         List<Employee> employees = session
                 .createQuery("from Employee where department_ID='" + uuid + "'", Employee.class)
@@ -184,8 +186,9 @@ public class DepartmentTest extends BaseTest {
         Transaction tx = null;
         try {
             tx = session.beginTransaction();
-            phoneNumbers.forEach(session::save);
-            employees.forEach(session::save);
+            phoneNumbers.forEach(session::update);
+            employees.forEach(session::update);
+
             session.delete(department);
             tx.commit();
         } catch (Exception e) {

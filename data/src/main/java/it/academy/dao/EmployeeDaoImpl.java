@@ -1,5 +1,6 @@
 package it.academy.dao;
 
+import it.academy.dao.interfaces.EmployeeDao;
 import it.academy.pojos.Employee;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,12 +21,17 @@ public class EmployeeDaoImpl implements EmployeeDao {
     }
 
     @Override
-    @Transactional
+    @Transactional()
     public List<Employee> getAllEmployeesInDepartment(String departmentId) {
-        String query = "from Employee e where e.id=" + departmentId;
+//        String query = "select * from Employee where department_id='" + departmentId + "';";
+//        List list = sessionFactory
+//                .getCurrentSession()
+//                .createSQLQuery(query).list();
+//        return list;
+
+        String query = "from Employee where department_id='" + departmentId + "'";
         return sessionFactory
-                .getCurrentSession()
-                .createQuery(query, Employee.class)
+                .getCurrentSession().createQuery(query, Employee.class)
                 .list();
     }
 
@@ -57,7 +63,7 @@ public class EmployeeDaoImpl implements EmployeeDao {
         employee = sessionFactory
                 .getCurrentSession()
                 .find(Employee.class, id);
-        return (employee != null);
+        return (employee == null);
     }
 
     @Override

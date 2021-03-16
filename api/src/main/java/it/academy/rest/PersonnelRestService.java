@@ -36,9 +36,9 @@ public class PersonnelRestService {
 
     @PostMapping(value = "/departments", consumes = "application/json")
     @ApiOperation("create department")
-    public ResponseEntity<Department> createDepartment(@RequestBody Department department) {
-        departmentService.createDepartment(department);
-        return new ResponseEntity<>(department, HttpStatus.CREATED);
+    public ResponseEntity<String> createDepartment(@RequestBody Department department) {
+        String id = departmentService.createDepartment(department);
+        return new ResponseEntity<>(id, HttpStatus.CREATED);
     }
 
     @DeleteMapping("/departments/{id}")
@@ -61,9 +61,9 @@ public class PersonnelRestService {
 
     @PostMapping(value = "/employees", consumes = "application/json")
     @ApiOperation("create employee")
-    public ResponseEntity<Employee> createEmployee(@RequestBody Employee employee) {
-        employeeService.createEmployee(employee);
-        return new ResponseEntity<>(employee, HttpStatus.CREATED);
+    public ResponseEntity<String> createEmployee(@RequestBody Employee employee) {
+        String id = employeeService.createEmployee(employee);
+        return new ResponseEntity<>(id, HttpStatus.CREATED);
     }
 
     @DeleteMapping("/employees/{id}")

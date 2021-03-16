@@ -1,7 +1,7 @@
 package it.academy.service;
 
-import it.academy.dao.DepartmentDao;
-import it.academy.dao.EmployeeDao;
+import it.academy.dao.interfaces.DepartmentDao;
+import it.academy.dao.interfaces.EmployeeDao;
 import it.academy.pojos.Department;
 import it.academy.pojos.Employee;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,8 +26,12 @@ public class EmployeeService {
         return employeeDao.createEmployee(employee);
     }
 
-    public boolean deleteEmployee(String id) {
-        return employeeDao.deleteEmployee(id);
+    public boolean deleteEmployee(String emplpyeeId) {
+
+
+
+
+        return employeeDao.deleteEmployee(emplpyeeId);
     }
 
     public void addEmployeeToDepartment(String employeeId, String departmentId) {
@@ -41,6 +45,21 @@ public class EmployeeService {
 
         departmentDao.updateDepartment(department);
     }
+
+    public String addNewEmployeeToDepartment(Employee employee, String departmentId) {
+
+        String employeeId = employeeDao.createEmployee(employee);
+        employee = employeeDao.getEmployee(employeeId);
+        Department department = departmentDao.getDepartment(departmentId);
+
+        List<Employee> employees = department.getEmployees();
+        employees.add(employee);
+        department.setEmployees(employees);
+
+        departmentDao.updateDepartment(department);
+        return employeeId;
+    }
+
 
     public void removeEmployeeFromDepartment(String employeeId, String departmentId) {
 

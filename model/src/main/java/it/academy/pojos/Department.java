@@ -1,6 +1,7 @@
 package it.academy.pojos;
 
 import lombok.*;
+import net.bytebuddy.build.ToStringPlugin;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
@@ -30,13 +31,15 @@ public class Department {
     @Embedded
     private Description description;
 
-    @OneToMany(mappedBy = "department")
+    @OneToMany(mappedBy = "department", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @ToString.Exclude
     private List<PhoneNumber> phoneNumber;
 
     @Column(name = "DATE_OF_FORMATION")
     private Date dateOfFormation;
 
     @Column(name = "EMPLOYEES")
-    @OneToMany(mappedBy = "department")
+    @OneToMany(mappedBy = "department", cascade = CascadeType.ALL)
+    @ToString.Exclude
     private List<Employee> employees;
 }

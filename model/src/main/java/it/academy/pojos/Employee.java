@@ -6,11 +6,9 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.hibernate.annotations.GenericGenerator;
 
-
 import javax.persistence.*;
 import java.sql.Date;
 import java.util.List;
-import java.util.Set;
 
 @Data
 @NoArgsConstructor
@@ -34,15 +32,15 @@ public class Employee {
 
     @Column(name = "PHONE_NUMBERS")
     @OneToMany(mappedBy = "employee")
-    private Set<PhoneNumber> phoneNumbers;
+    private List<PhoneNumber> phoneNumbers;
 
 
     @OneToMany(mappedBy = "employee")
-    private Set<EmailAddress> emailAddress;
+    private List<EmailAddress> emailAddress;
 
 
     @OneToMany(mappedBy = "employee")
-    private Set<Position> positions;
+    private List<Position> positions;
 
     @Column(name = "DATE_OF_EMPLOYMENT")
     private Date dateOfEmployment;
