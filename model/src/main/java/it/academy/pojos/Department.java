@@ -1,13 +1,14 @@
 package it.academy.pojos;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.*;
-import net.bytebuddy.build.ToStringPlugin;
 import org.hibernate.annotations.GenericGenerator;
+import org.hibernate.annotations.Proxy;
 
 import javax.persistence.*;
 import java.sql.Date;
 import java.util.List;
-import java.util.Set;
 
 @Data
 @NoArgsConstructor
@@ -15,6 +16,7 @@ import java.util.Set;
 @Getter
 @Setter
 @Entity
+@Proxy(lazy = false)
 @Table(name = "DEPARTMENT")
 public class Department {
 
@@ -31,15 +33,20 @@ public class Department {
     @Embedded
     private Description description;
 
-    @OneToMany(mappedBy = "department", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "department")
     @ToString.Exclude
+    @JsonManagedReference
+
+    @Transient
     private List<PhoneNumber> phoneNumber;
 
     @Column(name = "DATE_OF_FORMATION")
     private Date dateOfFormation;
 
     @Column(name = "EMPLOYEES")
-    @OneToMany(mappedBy = "department", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "department")
+
+    @Transient
     @ToString.Exclude
     private List<Employee> employees;
 }

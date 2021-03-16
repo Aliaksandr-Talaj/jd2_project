@@ -45,7 +45,7 @@ public class DaoConfiguration {
                 = new LocalSessionFactoryBean();
         sessionFactoryBean.setDataSource(dataSource);
         sessionFactoryBean.setAnnotatedClasses(
-                Department.class, EmailAddress.class, Employee.class,
+                Department.class, Employee.class,
                 PhoneNumber.class, Position.class
         );
         Properties properties = new Properties();

@@ -12,7 +12,7 @@ import java.util.List;
 @Repository
 public class DepartmentDaoImpl implements DepartmentDao {
 
-
+    @Autowired
     private SessionFactory sessionFactory;
 
     @Autowired
@@ -62,6 +62,6 @@ public class DepartmentDaoImpl implements DepartmentDao {
     @Override
     @Transactional
     public void updateDepartment(Department department) {
-        sessionFactory.getCurrentSession().saveOrUpdate(department);
+        sessionFactory.getCurrentSession().update(department);
     }
 }

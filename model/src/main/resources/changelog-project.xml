@@ -25,20 +25,9 @@
             DEFAULT CHARACTER SET = utf8;
         </sql>
     </changeSet>
-    <changeSet id="3" author="root">
-        <sql>
-            CREATE TABLE IF NOT EXISTS `project`.`emailaddress` (
-            `ID` VARCHAR(255) NOT NULL,
-            `EMAIL` VARCHAR(255) NULL,
-            `EMAIL_CATEGORY` VARCHAR(255) NULL,
-            `EMPLOYEE_ID` VARCHAR(255) NULL,
-            PRIMARY KEY (`ID`))
-            ENGINE = InnoDB
-            DEFAULT CHARACTER SET = utf8;
-        </sql>
-    </changeSet>
 
-    <changeSet id="4" author="root">
+
+    <changeSet id="3" author="root">
         <sql>
             CREATE TABLE IF NOT EXISTS `project`.`employee` (
             `ID` VARCHAR(255) NOT NULL,
@@ -48,17 +37,19 @@
             `PATRONYMIC` VARCHAR(255) NULL,
             `SURNAME` VARCHAR(255) NULL,
             `DEPARTMENT_ID` VARCHAR(255) NULL,
+            `EMAIL` VARCHAR(255) NULL,
+            `EMAIL_CATEGORY` VARCHAR(255) NULL,
             PRIMARY KEY (`ID`))
             ENGINE = InnoDB
             DEFAULT CHARACTER SET = utf8;
         </sql>
     </changeSet>
 
-    <changeSet id="5" author="root">
+    <changeSet id="4" author="root">
         <sql>
             CREATE TABLE IF NOT EXISTS `project`.`phone_number` (
             `ID` VARCHAR(255) NOT NULL,
-            `PHONE_NUMBER` VARCHAR(255) NULL,
+            `NUMBER` VARCHAR(255) NULL,
             `PHONE_NUMBER_CATEGORY` VARCHAR(255) NULL,
             `PHONE_OPERATOR` VARCHAR(255) NULL,
             `DEPARTMENT_ID` VARCHAR(255) NULL,
@@ -74,7 +65,7 @@
         </sql>
     </changeSet>
 
-    <changeSet id="6" author="root">
+    <changeSet id="5" author="root">
         <sql>
             CREATE TABLE IF NOT EXISTS `project`.`position` (
             `ID` VARCHAR(255) NOT NULL,
@@ -87,7 +78,7 @@
         </sql>
     </changeSet>
 
-    <changeSet id="7" author="root">
+    <changeSet id="6" author="root">
         <sql>
 
             INSERT INTO `project`.`department` (`ID`, `DATE_OF_FORMATION`, `COMMON_INFO`, `MISSION`, `PURPOSE`,
@@ -110,282 +101,200 @@
         </sql>
     </changeSet>
 
+    <changeSet id="7" author="root">
+        <sql>
+            INSERT INTO `project`.`employee` (`ID`, `DATE_OF_BIRTH`, `DATE_OF_EMPLOYMENT`, `NAME`, `PATRONYMIC`,
+            `SURNAME`, `DEPARTMENT_ID`, `EMAIL`, `EMAIL_CATEGORY`) VALUES ('402880ec780f061f01780f0622690007',
+            '1999-02-16', '2020-09-28',
+            'Natalia', 'Petrovna', 'Taschuk', '402880ec780f061f01780f0622680001', 'wnhborq@outlook.com', 'OFFICIAL');
+            INSERT INTO `project`.`employee` (`ID`, `DATE_OF_BIRTH`, `DATE_OF_EMPLOYMENT`, `NAME`, `PATRONYMIC`,
+            `SURNAME`, `DEPARTMENT_ID`, `EMAIL`, `EMAIL_CATEGORY`) VALUES ('402880ec780f061f01780f0622690008',
+            '1997-08-05', '2020-06-09',
+            'Vasili', 'Ustinovich', 'Toropygo', '402880ec780f061f01780f0622680001','gq@yandex.ru', 'OFFICIAL');
+            INSERT INTO `project`.`employee` (`ID`, `DATE_OF_BIRTH`, `DATE_OF_EMPLOYMENT`, `NAME`, `PATRONYMIC`,
+            `SURNAME`, `DEPARTMENT_ID`, `EMAIL`, `EMAIL_CATEGORY`) VALUES ('402880ec780f061f01780f0622690009',
+            '1975-06-11', '2020-02-02',
+            'Aleksandr', 'Batskovich', 'Semipolak', '402880ec780f061f01780f0622680002', 'ic0pu@outlook.com',
+            'OFFICIAL');
+            INSERT INTO `project`.`employee` (`ID`, `DATE_OF_BIRTH`, `DATE_OF_EMPLOYMENT`, `NAME`, `PATRONYMIC`,
+            `SURNAME`, `DEPARTMENT_ID`, `EMAIL`, `EMAIL_CATEGORY`) VALUES ('402880ec780f061f01780f0622690010',
+            '1993-12-04', '2020-12-12',
+            'Arsen', 'Begomych', 'Dostavlian', '402880ec780f061f01780f0622680001', 'o7khr@yandex.ru', 'OFFICIAL');
+            INSERT INTO `project`.`employee` (`ID`, `DATE_OF_BIRTH`, `DATE_OF_EMPLOYMENT`, `NAME`, `PATRONYMIC`,
+            `SURNAME`, `DEPARTMENT_ID`, `EMAIL`, `EMAIL_CATEGORY`) VALUES ('402880ec780f061f01780f0622690011',
+            '1965-05-28', '2020-02-24',
+            'Gregor', 'Vahtangovich', 'Zashibidze', '402880ec780f061f01780f06225b0000', '2shlaq@outlook.com',
+            'OFFICIAL');
+            INSERT INTO `project`.`employee` (`ID`, `DATE_OF_BIRTH`, `DATE_OF_EMPLOYMENT`, `NAME`, `PATRONYMIC`,
+            `SURNAME`, `DEPARTMENT_ID`, `EMAIL`, `EMAIL_CATEGORY`) VALUES ('402880ec780f061f01780f0622690012',
+            '1967-11-13', '2020-09-27',
+            'Stepan', 'Eduardovich', 'Antonov', '402880ec780f061f01780f06225b0000', 'cdbw@yandex.ru', 'OFFICIAL');
+            INSERT INTO `project`.`employee` (`ID`, `DATE_OF_BIRTH`, `DATE_OF_EMPLOYMENT`, `NAME`, `PATRONYMIC`,
+            `SURNAME`, `DEPARTMENT_ID`, `EMAIL`, `EMAIL_CATEGORY`) VALUES ('402880ec780f061f01780f0622690013',
+            '1968-06-19', '2020-04-02',
+            'Oleg', 'Fedorovich', 'Bobylev', '402880ec780f061f01780f0622680003', 'wrts90puk@yandex.ru', 'OFFICIAL');
+            INSERT INTO `project`.`employee` (`ID`, `DATE_OF_BIRTH`, `DATE_OF_EMPLOYMENT`, `NAME`, `PATRONYMIC`,
+            `SURNAME`, `DEPARTMENT_ID`, `EMAIL`, `EMAIL_CATEGORY`) VALUES ('402880ec780f061f01780f0622690014',
+            '1984-09-17', '2020-07-08',
+            'Vera', 'Egorovna', 'Morozova', '402880ec780f061f01780f0622680003', 'yxunv@gmail.com', 'OFFICIAL');
+            INSERT INTO `project`.`employee` (`ID`, `DATE_OF_BIRTH`, `DATE_OF_EMPLOYMENT`, `NAME`, `PATRONYMIC`,
+            `SURNAME`, `DEPARTMENT_ID`, `EMAIL`, `EMAIL_CATEGORY`) VALUES ('402880ec780f061f01780f0622690015',
+            '1962-06-01', '2020-07-31',
+            'Timofey', 'Nikitich', 'Kondratyev', '402880ec780f061f01780f06225b0000', '7y@yandex.ru', 'OFFICIAL');
+            INSERT INTO `project`.`employee` (`ID`, `DATE_OF_BIRTH`, `DATE_OF_EMPLOYMENT`, `NAME`, `PATRONYMIC`,
+            `SURNAME`, `DEPARTMENT_ID`, `EMAIL`, `EMAIL_CATEGORY`) VALUES ('402880ec780f061f01780f0622690016',
+            '1989-02-05', '2020-02-12',
+            'Roman', 'Rostislavovich', 'Kulikov', '402880ec780f061f01780f0622680003', '6@mail.ru', 'OFFICIAL');
+            INSERT INTO `project`.`employee` (`ID`, `DATE_OF_BIRTH`, `DATE_OF_EMPLOYMENT`, `NAME`, `PATRONYMIC`,
+            `SURNAME`, `DEPARTMENT_ID`, `EMAIL`, `EMAIL_CATEGORY`) VALUES ('402880ec780f061f01780f0622690017',
+            '1963-12-02', '2020-08-09',
+            'Viacheslav', 'Gavrilovich', 'Zeleny', '402880ec780f061f01780f06225b0000', 'k8sjebg1y@mail.ru',
+            'OFFICIAL');
+            INSERT INTO `project`.`employee` (`ID`, `DATE_OF_BIRTH`, `DATE_OF_EMPLOYMENT`, `NAME`, `PATRONYMIC`,
+            `SURNAME`, `DEPARTMENT_ID`, `EMAIL`, `EMAIL_CATEGORY`) VALUES ('402880ec780f061f01780f0622690018',
+            '1975-02-17', '2020-07-28',
+            'Mihail', 'Artemovich', 'Priezzhaev', '402880ec780f061f01780f0622680003', 'jirbold@gmail.com', 'OFFICIAL');
+            INSERT INTO `project`.`employee` (`ID`, `DATE_OF_BIRTH`, `DATE_OF_EMPLOYMENT`, `NAME`, `PATRONYMIC`,
+            `SURNAME`, `DEPARTMENT_ID`, `EMAIL`, `EMAIL_CATEGORY`) VALUES ('402880ec780f061f01780f0622690019',
+            '1976-10-16', '2020-11-14',
+            'Kirill', 'Denisovich', 'Yobel', '402880ec780f061f01780f06225b0000', 'u7yhwf1vb@mail.ru', 'OFFICIAL');
+            INSERT INTO `project`.`employee` (`ID`, `DATE_OF_BIRTH`, `DATE_OF_EMPLOYMENT`, `NAME`, `PATRONYMIC`,
+            `SURNAME`, `DEPARTMENT_ID`, `EMAIL`, `EMAIL_CATEGORY`) VALUES ('402880ec780f061f01780f0622690020',
+            '1999-02-16', '2020-07-15',
+            'Ilya', 'Valeryevich', 'Sivolap', '402880ec780f061f01780f0622680003', 'f@outlook.com', 'OFFICIAL');
+            INSERT INTO `project`.`employee` (`ID`, `DATE_OF_BIRTH`, `DATE_OF_EMPLOYMENT`, `NAME`, `PATRONYMIC`,
+            `SURNAME`, `DEPARTMENT_ID`, `EMAIL`, `EMAIL_CATEGORY`) VALUES ('402880ec780f061f01780f0622690021',
+            '1985-07-16', '2020-07-13',
+            'Semen', 'Danilovich', 'Bescenny', '402880ec780f061f01780f06225b0000', 'gjkhp@mail.ru', 'OFFICIAL');
+            INSERT INTO `project`.`employee` (`ID`, `DATE_OF_BIRTH`, `DATE_OF_EMPLOYMENT`, `NAME`, `PATRONYMIC`,
+            `SURNAME`, `DEPARTMENT_ID`, `EMAIL`, `EMAIL_CATEGORY`) VALUES ('402880ec780f061f01780f0622690022',
+            '1970-09-21', '2021-03-03',
+            'Sviatoslav', 'Yaroslavovich', 'Murmikov', '402880ec780f061f01780f0622680003', 'wyalkxfde@gmail.com',
+            'OFFICIAL');
+            INSERT INTO `project`.`employee` (`ID`, `DATE_OF_BIRTH`, `DATE_OF_EMPLOYMENT`, `NAME`, `PATRONYMIC`,
+            `SURNAME`, `DEPARTMENT_ID`, `EMAIL`, `EMAIL_CATEGORY`) VALUES ('402880ec780f061f01780f0622690023',
+            '1997-08-05', '2020-06-24',
+            'Gleb', 'Yaroslavovich', 'Oblichinsky', '402880ec780f061f01780f06225b0000', 'f245n@outlook.com',
+            'OFFICIAL');
+            INSERT INTO `project`.`employee` (`ID`, `DATE_OF_BIRTH`, `DATE_OF_EMPLOYMENT`, `NAME`, `PATRONYMIC`,
+            `SURNAME`, `DEPARTMENT_ID`, `EMAIL`, `EMAIL_CATEGORY`) VALUES ('402880ec780f061f01780f0622690024',
+            '1993-12-04', '2020-12-06',
+            'Valentin', 'Petrovich', 'Dostavalov', '402880ec780f061f01780f0622680003', 'w@outlook.com', 'OFFICIAL');
+            INSERT INTO `project`.`employee` (`ID`, `DATE_OF_BIRTH`, `DATE_OF_EMPLOYMENT`, `NAME`, `PATRONYMIC`,
+            `SURNAME`, `DEPARTMENT_ID`, `EMAIL`, `EMAIL_CATEGORY`) VALUES ('402880ec780f061f01780f0622690025',
+            '1985-07-11', '2020-02-13',
+            'Aleksandr', 'Danilovoch', 'Shkurny', '402880ec780f061f01780f06225b0000', 'js3kyopz@mail.ru', 'OFFICIAL');
+            INSERT INTO `project`.`employee` (`ID`, `DATE_OF_BIRTH`, `DATE_OF_EMPLOYMENT`, `NAME`, `PATRONYMIC`,
+            `SURNAME`, `DEPARTMENT_ID`, `EMAIL`, `EMAIL_CATEGORY`) VALUES ('402880ec780f061f01780f0622690026',
+            '1974-03-14', '2020-03-21',
+            'Matvey', 'Mihaylovich', 'Zhaba', '402880ec780f061f01780f0622680003', 'o@outlook.com', 'OFFICIAL');
+            INSERT INTO `project`.`employee` (`ID`, `DATE_OF_BIRTH`, `DATE_OF_EMPLOYMENT`, `NAME`, `PATRONYMIC`,
+            `SURNAME`, `DEPARTMENT_ID`, `EMAIL`, `EMAIL_CATEGORY`) VALUES ('402880ec780f061f01780f0622690027',
+            '1984-05-10', '2020-05-19',
+            'Yury', 'Denisovich', 'Myasnoy', '402880ec780f061f01780f06225b0000', 'uzfd@mail.ru', 'OFFICIAL');
+            INSERT INTO `project`.`employee` (`ID`, `DATE_OF_BIRTH`, `DATE_OF_EMPLOYMENT`, `NAME`, `PATRONYMIC`,
+            `SURNAME`, `DEPARTMENT_ID`, `EMAIL`, `EMAIL_CATEGORY`) VALUES ('402880ec780f061f01780f0622690028',
+            '1993-02-21', '2020-03-14',
+            'Semen', 'Bogdanovich', 'Bokastov', '402880ec780f061f01780f0622680003', 'g@mail.ru', 'OFFICIAL');
+            INSERT INTO `project`.`employee` (`ID`, `DATE_OF_BIRTH`, `DATE_OF_EMPLOYMENT`, `NAME`, `PATRONYMIC`,
+            `SURNAME`, `DEPARTMENT_ID`, `EMAIL`, `EMAIL_CATEGORY`) VALUES ('402880ec780f061f01780f0622690029',
+            '1981-08-02', '2020-11-02',
+            'Stanislav', 'Borisovich', 'Zimmermann', '402880ec780f061f01780f06225b0000', 'dvjf0@gmail.com', 'OFFICIAL');
+            INSERT INTO `project`.`employee` (`ID`, `DATE_OF_BIRTH`, `DATE_OF_EMPLOYMENT`, `NAME`, `PATRONYMIC`,
+            `SURNAME`, `DEPARTMENT_ID`, `EMAIL`, `EMAIL_CATEGORY`) VALUES ('402880ec780f061f01780f0622690030',
+            '1989-02-21', '2020-09-09',
+            'Rostislav', 'Semenovich', 'Levkovich', '402880ec780f061f01780f06225b0000', 'd2mc@outlook.com', 'OFFICIAL');
+            INSERT INTO `project`.`employee` (`ID`, `DATE_OF_BIRTH`, `DATE_OF_EMPLOYMENT`, `NAME`, `PATRONYMIC`,
+            `SURNAME`, `DEPARTMENT_ID`, `EMAIL`, `EMAIL_CATEGORY`) VALUES ('402880ec780f061f01780f0622690031',
+            '1975-06-11', '2020-03-17',
+            'Marlena', 'Valerianovna', 'Azaryeva', '402880ec780f061f01780f0622680003', '06lk@mail.ru', 'OFFICIAL');
+            INSERT INTO `project`.`employee` (`ID`, `DATE_OF_BIRTH`, `DATE_OF_EMPLOYMENT`, `NAME`, `PATRONYMIC`,
+            `SURNAME`, `DEPARTMENT_ID`, `EMAIL`, `EMAIL_CATEGORY`) VALUES ('402880ec780f061f01780f0622690032',
+            '1982-05-27', '2020-07-21',
+            'Anatolia', 'Veniaminovna', 'Zavalishina', '402880ec780f061f01780f0622680003', 'emhzysf2@yandex.ru',
+            'OFFICIAL');
+            INSERT INTO `project`.`employee` (`ID`, `DATE_OF_BIRTH`, `DATE_OF_EMPLOYMENT`, `NAME`, `PATRONYMIC`,
+            `SURNAME`, `DEPARTMENT_ID`, `EMAIL`, `EMAIL_CATEGORY`) VALUES ('402880ec780f061f01780f0622690033',
+            '1998-07-11', '2021-01-16',
+            'Iustina', 'Maryevna', 'Kachalova', '402880ec780f061f01780f0622680003', 'd1w28lkg@yandex.ru', 'OFFICIAL');
+            INSERT INTO `project`.`employee` (`ID`, `DATE_OF_BIRTH`, `DATE_OF_EMPLOYMENT`, `NAME`, `PATRONYMIC`,
+            `SURNAME`, `DEPARTMENT_ID`, `EMAIL`, `EMAIL_CATEGORY`) VALUES ('402880ec780f061f01780f0622690034',
+            '1961-09-19', '2020-04-13',
+            'Galina', 'Bonifacievna', 'Kaverina', '402880ec780f061f01780f0622680003', 't93@mail.ru', 'PERSONAL');
+            INSERT INTO `project`.`employee` (`ID`, `DATE_OF_BIRTH`, `DATE_OF_EMPLOYMENT`, `NAME`, `PATRONYMIC`,
+            `SURNAME`, `DEPARTMENT_ID`, `EMAIL`, `EMAIL_CATEGORY`) VALUES ('402880ec780f061f01780f0622690035',
+            '1969-05-19', '2020-07-24',
+            'Glikeriya', 'Vladlenovna', 'Vodosviatskaya', '402880ec780f061f01780f0622680003', 't3i@outlook.com',
+            'PERSONAL');
+            INSERT INTO `project`.`employee` (`ID`, `DATE_OF_BIRTH`, `DATE_OF_EMPLOYMENT`, `NAME`, `PATRONYMIC`,
+            `SURNAME`, `DEPARTMENT_ID`, `EMAIL`, `EMAIL_CATEGORY`) VALUES ('402880ec780f061f01780f0622690036',
+            '1975-01-05', '2020-06-22',
+            'Pelageya', 'Maksimilianovna', 'Mikulina', '402880ec780f061f01780f0622680003', 't6ro3@gmail.com',
+            'PERSONAL');
+            INSERT INTO `project`.`employee` (`ID`, `DATE_OF_BIRTH`, `DATE_OF_EMPLOYMENT`, `NAME`, `PATRONYMIC`,
+            `SURNAME`, `DEPARTMENT_ID`, `EMAIL`, `EMAIL_CATEGORY`) VALUES ('402880ec780f061f01780f0622690037',
+            '1985-09-18', '2020-06-06',
+            'Oleg', 'Varlaamovich', 'Glagolev', '402880ec780f061f01780f06225b0000', '1zqnk0y7@yandex.ru', 'PERSONAL');
+            INSERT INTO `project`.`employee` (`ID`, `DATE_OF_BIRTH`, `DATE_OF_EMPLOYMENT`, `NAME`, `PATRONYMIC`,
+            `SURNAME`, `DEPARTMENT_ID`, `EMAIL`, `EMAIL_CATEGORY`) VALUES ('402880ec780f061f01780f0622690038',
+            '1984-05-27', '2020-04-02',
+            'Anisim', 'Nikodimovich', 'Goncharuk', '402880ec780f061f01780f06225b0000', '768ptl4nv@gmail.com',
+            'PERSONAL');
+            INSERT INTO `project`.`employee` (`ID`, `DATE_OF_BIRTH`, `DATE_OF_EMPLOYMENT`, `NAME`, `PATRONYMIC`,
+            `SURNAME`, `DEPARTMENT_ID`, `EMAIL`, `EMAIL_CATEGORY`) VALUES ('402880ec780f061f01780f0622690039',
+            '1967-07-14', '2020-04-02',
+            'Grigoriy', 'Ananievich', 'Vodynsky', '402880ec780f061f01780f06225b0000', 'bzq3yh2c1@mail.ru', 'PERSONAL');
+            INSERT INTO `project`.`employee` (`ID`, `DATE_OF_BIRTH`, `DATE_OF_EMPLOYMENT`, `NAME`, `PATRONYMIC`,
+            `SURNAME`, `DEPARTMENT_ID`, `EMAIL`, `EMAIL_CATEGORY`) VALUES ('402880ec780f061f01780f0622690040',
+            '1971-10-23', '2020-02-24',
+            'Urvan', 'Patapievich', 'Kirponos', '402880ec780f061f01780f06225b0000', '78k3dvwx@outlook.com', 'PERSONAL');
+            INSERT INTO `project`.`employee` (`ID`, `DATE_OF_BIRTH`, `DATE_OF_EMPLOYMENT`, `NAME`, `PATRONYMIC`,
+            `SURNAME`, `DEPARTMENT_ID`, `EMAIL`, `EMAIL_CATEGORY`) VALUES ('402880ec780f061f01780f0622690041',
+            '1981-02-24', '2020-02-13',
+            'Akila', 'Avraamievich', 'Butenev', '402880ec780f061f01780f06225b0000', 'fe8obp@mail.ru', 'PERSONAL');
+            INSERT INTO `project`.`employee` (`ID`, `DATE_OF_BIRTH`, `DATE_OF_EMPLOYMENT`, `NAME`, `PATRONYMIC`,
+            `SURNAME`, `DEPARTMENT_ID`, `EMAIL`, `EMAIL_CATEGORY`) VALUES ('402880ec780f061f01780f0622690042',
+            '1984-09-21', '2020-07-08',
+            'Dosifey', 'Dementyevich', 'Starodubsky', '402880ec780f061f01780f06225b0000', 'lrsdy5p@yandex.ru',
+            'OFFICIAL');
+            INSERT INTO `project`.`employee` (`ID`, `DATE_OF_BIRTH`, `DATE_OF_EMPLOYMENT`, `NAME`, `PATRONYMIC`,
+            `SURNAME`, `DEPARTMENT_ID`, `EMAIL`, `EMAIL_CATEGORY`) VALUES ('402880ec780f061f01780f0622690043',
+            '1971-10-28', '2020-11-02',
+            'Rafail', 'Prohorovich', 'Valtsov', '402880ec780f061f01780f06225b0000', 'cxh2daw8@outlook.com', 'PERSONAL');
+            INSERT INTO `project`.`employee` (`ID`, `DATE_OF_BIRTH`, `DATE_OF_EMPLOYMENT`, `NAME`, `PATRONYMIC`,
+            `SURNAME`, `DEPARTMENT_ID`, `EMAIL`, `EMAIL_CATEGORY`) VALUES ('402880ec780f061f01780f0622690044',
+            '1968-03-09', '2020-09-09',
+            'Agafonik', 'Kazimirovich', 'Koshelev', '402880ec780f061f01780f06225b0000', '2de17h@mail.ru', 'OFFICIAL');
+            INSERT INTO `project`.`employee` (`ID`, `DATE_OF_BIRTH`, `DATE_OF_EMPLOYMENT`, `NAME`, `PATRONYMIC`,
+            `SURNAME`, `DEPARTMENT_ID`, `EMAIL`, `EMAIL_CATEGORY`) VALUES ('402880ec780f061f01780f0622690045',
+            '1988-03-06', '2020-07-08',
+            'Tit', 'Arturovich', 'Savin', '402880ec780f061f01780f06225b0000', 'we3l08z5@gmail.com', 'OFFICIAL');
+            INSERT INTO `project`.`employee` (`ID`, `DATE_OF_BIRTH`, `DATE_OF_EMPLOYMENT`, `NAME`, `PATRONYMIC`,
+            `SURNAME`, `DEPARTMENT_ID`, `EMAIL`, `EMAIL_CATEGORY`) VALUES ('402880ec780f061f01780f0622690046',
+            '1985-06-09', '2020-08-09',
+            'Nastasiy', 'Vladlenovich', 'Yablochkov', '402880ec780f061f01780f06225b0000', 'i8ovxn2f@gmail.com',
+            'OFFICIAL');
+            INSERT INTO `project`.`employee` (`ID`, `DATE_OF_BIRTH`, `DATE_OF_EMPLOYMENT`, `NAME`, `PATRONYMIC`,
+            `SURNAME`, `DEPARTMENT_ID`, `EMAIL`, `EMAIL_CATEGORY`) VALUES ('402880ec780f061f01780f0622690047',
+            '1984-05-27', '2020-02-02',
+            'Karl', 'Evstigneevich', 'Lavrov', '402880ec780f061f01780f06225b0000', 'q4as80@outlook.com', 'PERSONAL');
+            INSERT INTO `project`.`employee` (`ID`, `DATE_OF_BIRTH`, `DATE_OF_EMPLOYMENT`, `NAME`, `PATRONYMIC`,
+            `SURNAME`, `EMAIL`, `EMAIL_CATEGORY`) VALUES ('402880ec780f061f01780f0622690048', '1998-01-17',
+            '2020-06-09', 'Porfiriy',
+            'Silantievich', 'Samoylov', 'opu@outlook.com', 'PERSONAL');
+            INSERT INTO `project`.`employee` (`ID`, `DATE_OF_BIRTH`, `DATE_OF_EMPLOYMENT`, `NAME`, `PATRONYMIC`,
+            `SURNAME`, `EMAIL`, `EMAIL_CATEGORY`) VALUES ('402880ec780f061f01780f0622690049', '1987-01-21',
+            '2020-04-02', 'Prohor',
+            'Vlasovich', 'Kvashnin', '5iar3l8k@yandex.ru', 'PERSONAL');
+            INSERT INTO `project`.`employee` (`ID`, `DATE_OF_BIRTH`, `DATE_OF_EMPLOYMENT`, `NAME`, `PATRONYMIC`,
+            `SURNAME`, `EMAIL`, `EMAIL_CATEGORY`) VALUES ('402880ec780f061f01780f0622690050', '1967-07-14',
+            '2020-07-13', 'Emilian',
+            'Severinovich', 'Moiseev', '4zegxla@mail.ru', 'PERSONAL');
+
+        </sql>
+    </changeSet>
+
     <changeSet id="8" author="root">
-        <sql>
-            INSERT INTO `project`.`employee` (`ID`, `DATE_OF_BIRTH`, `DATE_OF_EMPLOYMENT`, `NAME`, `PATRONYMIC`,
-            `SURNAME`, `DEPARTMENT_ID`) VALUES ('402880ec780f061f01780f0622690007', '1999-02-16', '2020-09-28',
-            'Natalia', 'Petrovna', 'Taschuk', '402880ec780f061f01780f0622680001');
-            INSERT INTO `project`.`employee` (`ID`, `DATE_OF_BIRTH`, `DATE_OF_EMPLOYMENT`, `NAME`, `PATRONYMIC`,
-            `SURNAME`, `DEPARTMENT_ID`) VALUES ('402880ec780f061f01780f0622690008', '1997-08-05', '2020-06-09',
-            'Vasili', 'Ustinovich', 'Toropygo', '402880ec780f061f01780f0622680001');
-            INSERT INTO `project`.`employee` (`ID`, `DATE_OF_BIRTH`, `DATE_OF_EMPLOYMENT`, `NAME`, `PATRONYMIC`,
-            `SURNAME`, `DEPARTMENT_ID`) VALUES ('402880ec780f061f01780f0622690009', '1975-06-11', '2020-02-02',
-            'Aleksandr', 'Batskovich', 'Semipolak', '402880ec780f061f01780f0622680002');
-            INSERT INTO `project`.`employee` (`ID`, `DATE_OF_BIRTH`, `DATE_OF_EMPLOYMENT`, `NAME`, `PATRONYMIC`,
-            `SURNAME`, `DEPARTMENT_ID`) VALUES ('402880ec780f061f01780f0622690010', '1993-12-04', '2020-12-12',
-            'Arsen', 'Begomych', 'Dostavlian', '402880ec780f061f01780f0622680001');
-            INSERT INTO `project`.`employee` (`ID`, `DATE_OF_BIRTH`, `DATE_OF_EMPLOYMENT`, `NAME`, `PATRONYMIC`,
-            `SURNAME`, `DEPARTMENT_ID`) VALUES ('402880ec780f061f01780f0622690011', '1965-05-28', '2020-02-24',
-            'Gregor', 'Vahtangovich', 'Zashibidze', '402880ec780f061f01780f06225b0000');
-            INSERT INTO `project`.`employee` (`ID`, `DATE_OF_BIRTH`, `DATE_OF_EMPLOYMENT`, `NAME`, `PATRONYMIC`,
-            `SURNAME`, `DEPARTMENT_ID`) VALUES ('402880ec780f061f01780f0622690012', '1967-11-13', '2020-09-27',
-            'Stepan', 'Eduardovich', 'Antonov', '402880ec780f061f01780f06225b0000');
-            INSERT INTO `project`.`employee` (`ID`, `DATE_OF_BIRTH`, `DATE_OF_EMPLOYMENT`, `NAME`, `PATRONYMIC`,
-            `SURNAME`, `DEPARTMENT_ID`) VALUES ('402880ec780f061f01780f0622690013', '1968-06-19', '2020-04-02',
-            'Oleg', 'Fedorovich', 'Bobylev', '402880ec780f061f01780f0622680003');
-            INSERT INTO `project`.`employee` (`ID`, `DATE_OF_BIRTH`, `DATE_OF_EMPLOYMENT`, `NAME`, `PATRONYMIC`,
-            `SURNAME`, `DEPARTMENT_ID`) VALUES ('402880ec780f061f01780f0622690014', '1984-09-17', '2020-07-08',
-            'Vera', 'Egorovna', 'Morozova', '402880ec780f061f01780f0622680003');
-            INSERT INTO `project`.`employee` (`ID`, `DATE_OF_BIRTH`, `DATE_OF_EMPLOYMENT`, `NAME`, `PATRONYMIC`,
-            `SURNAME`, `DEPARTMENT_ID`) VALUES ('402880ec780f061f01780f0622690015', '1962-06-01', '2020-07-31',
-            'Timofey', 'Nikitich', 'Kondratyev', '402880ec780f061f01780f06225b0000');
-            INSERT INTO `project`.`employee` (`ID`, `DATE_OF_BIRTH`, `DATE_OF_EMPLOYMENT`, `NAME`, `PATRONYMIC`,
-            `SURNAME`, `DEPARTMENT_ID`) VALUES ('402880ec780f061f01780f0622690016', '1989-02-05', '2020-02-12',
-            'Roman', 'Rostislavovich', 'Kulikov', '402880ec780f061f01780f0622680003');
-            INSERT INTO `project`.`employee` (`ID`, `DATE_OF_BIRTH`, `DATE_OF_EMPLOYMENT`, `NAME`, `PATRONYMIC`,
-            `SURNAME`, `DEPARTMENT_ID`) VALUES ('402880ec780f061f01780f0622690017', '1963-12-02', '2020-08-09',
-            'Viacheslav', 'Gavrilovich', 'Zeleny', '402880ec780f061f01780f06225b0000');
-            INSERT INTO `project`.`employee` (`ID`, `DATE_OF_BIRTH`, `DATE_OF_EMPLOYMENT`, `NAME`, `PATRONYMIC`,
-            `SURNAME`, `DEPARTMENT_ID`) VALUES ('402880ec780f061f01780f0622690018', '1975-02-17', '2020-07-28',
-            'Mihail', 'Artemovich', 'Priezzhaev', '402880ec780f061f01780f0622680003');
-            INSERT INTO `project`.`employee` (`ID`, `DATE_OF_BIRTH`, `DATE_OF_EMPLOYMENT`, `NAME`, `PATRONYMIC`,
-            `SURNAME`, `DEPARTMENT_ID`) VALUES ('402880ec780f061f01780f0622690019', '1976-10-16', '2020-11-14',
-            'Kirill', 'Denisovich', 'Yobel', '402880ec780f061f01780f06225b0000');
-            INSERT INTO `project`.`employee` (`ID`, `DATE_OF_BIRTH`, `DATE_OF_EMPLOYMENT`, `NAME`, `PATRONYMIC`,
-            `SURNAME`, `DEPARTMENT_ID`) VALUES ('402880ec780f061f01780f0622690020', '1999-02-16', '2020-07-15',
-            'Ilya', 'Valeryevich', 'Sivolap', '402880ec780f061f01780f0622680003');
-            INSERT INTO `project`.`employee` (`ID`, `DATE_OF_BIRTH`, `DATE_OF_EMPLOYMENT`, `NAME`, `PATRONYMIC`,
-            `SURNAME`, `DEPARTMENT_ID`) VALUES ('402880ec780f061f01780f0622690021', '1985-07-16', '2020-07-13',
-            'Semen', 'Danilovich', 'Bescenny', '402880ec780f061f01780f06225b0000');
-            INSERT INTO `project`.`employee` (`ID`, `DATE_OF_BIRTH`, `DATE_OF_EMPLOYMENT`, `NAME`, `PATRONYMIC`,
-            `SURNAME`, `DEPARTMENT_ID`) VALUES ('402880ec780f061f01780f0622690022', '1970-09-21', '2021-03-03',
-            'Sviatoslav', 'Yaroslavovich', 'Murmikov', '402880ec780f061f01780f0622680003');
-            INSERT INTO `project`.`employee` (`ID`, `DATE_OF_BIRTH`, `DATE_OF_EMPLOYMENT`, `NAME`, `PATRONYMIC`,
-            `SURNAME`, `DEPARTMENT_ID`) VALUES ('402880ec780f061f01780f0622690023', '1997-08-05', '2020-06-24',
-            'Gleb', 'Yaroslavovich', 'Oblichinsky', '402880ec780f061f01780f06225b0000');
-            INSERT INTO `project`.`employee` (`ID`, `DATE_OF_BIRTH`, `DATE_OF_EMPLOYMENT`, `NAME`, `PATRONYMIC`,
-            `SURNAME`, `DEPARTMENT_ID`) VALUES ('402880ec780f061f01780f0622690024', '1993-12-04', '2020-12-06',
-            'Valentin', 'Petrovich', 'Dostavalov', '402880ec780f061f01780f0622680003');
-            INSERT INTO `project`.`employee` (`ID`, `DATE_OF_BIRTH`, `DATE_OF_EMPLOYMENT`, `NAME`, `PATRONYMIC`,
-            `SURNAME`, `DEPARTMENT_ID`) VALUES ('402880ec780f061f01780f0622690025', '1985-07-11', '2020-02-13',
-            'Aleksandr', 'Danilovoch', 'Shkurny', '402880ec780f061f01780f06225b0000');
-            INSERT INTO `project`.`employee` (`ID`, `DATE_OF_BIRTH`, `DATE_OF_EMPLOYMENT`, `NAME`, `PATRONYMIC`,
-            `SURNAME`, `DEPARTMENT_ID`) VALUES ('402880ec780f061f01780f0622690026', '1974-03-14', '2020-03-21',
-            'Matvey', 'Mihaylovich', 'Zhaba', '402880ec780f061f01780f0622680003');
-            INSERT INTO `project`.`employee` (`ID`, `DATE_OF_BIRTH`, `DATE_OF_EMPLOYMENT`, `NAME`, `PATRONYMIC`,
-            `SURNAME`, `DEPARTMENT_ID`) VALUES ('402880ec780f061f01780f0622690027', '1984-05-10', '2020-05-19',
-            'Yury', 'Denisovich', 'Myasnoy', '402880ec780f061f01780f06225b0000');
-            INSERT INTO `project`.`employee` (`ID`, `DATE_OF_BIRTH`, `DATE_OF_EMPLOYMENT`, `NAME`, `PATRONYMIC`,
-            `SURNAME`, `DEPARTMENT_ID`) VALUES ('402880ec780f061f01780f0622690028', '1993-02-21', '2020-03-14',
-            'Semen', 'Bogdanovich', 'Bokastov', '402880ec780f061f01780f0622680003');
-            INSERT INTO `project`.`employee` (`ID`, `DATE_OF_BIRTH`, `DATE_OF_EMPLOYMENT`, `NAME`, `PATRONYMIC`,
-            `SURNAME`, `DEPARTMENT_ID`) VALUES ('402880ec780f061f01780f0622690029', '1981-08-02', '2020-11-02',
-            'Stanislav', 'Borisovich', 'Zimmermann', '402880ec780f061f01780f06225b0000');
-            INSERT INTO `project`.`employee` (`ID`, `DATE_OF_BIRTH`, `DATE_OF_EMPLOYMENT`, `NAME`, `PATRONYMIC`,
-            `SURNAME`, `DEPARTMENT_ID`) VALUES ('402880ec780f061f01780f0622690030', '1989-02-21', '2020-09-09',
-            'Rostislav', 'Semenovich', 'Levkovich', '402880ec780f061f01780f06225b0000');
-            INSERT INTO `project`.`employee` (`ID`, `DATE_OF_BIRTH`, `DATE_OF_EMPLOYMENT`, `NAME`, `PATRONYMIC`,
-            `SURNAME`, `DEPARTMENT_ID`) VALUES ('402880ec780f061f01780f0622690031', '1975-06-11', '2020-03-17',
-            'Marlena', 'Valerianovna', 'Azaryeva', '402880ec780f061f01780f0622680003');
-            INSERT INTO `project`.`employee` (`ID`, `DATE_OF_BIRTH`, `DATE_OF_EMPLOYMENT`, `NAME`, `PATRONYMIC`,
-            `SURNAME`, `DEPARTMENT_ID`) VALUES ('402880ec780f061f01780f0622690032', '1982-05-27', '2020-07-21',
-            'Anatolia', 'Veniaminovna', 'Zavalishina', '402880ec780f061f01780f0622680003');
-            INSERT INTO `project`.`employee` (`ID`, `DATE_OF_BIRTH`, `DATE_OF_EMPLOYMENT`, `NAME`, `PATRONYMIC`,
-            `SURNAME`, `DEPARTMENT_ID`) VALUES ('402880ec780f061f01780f0622690033', '1998-07-11', '2021-01-16',
-            'Iustina', 'Maryevna', 'Kachalova', '402880ec780f061f01780f0622680003');
-            INSERT INTO `project`.`employee` (`ID`, `DATE_OF_BIRTH`, `DATE_OF_EMPLOYMENT`, `NAME`, `PATRONYMIC`,
-            `SURNAME`, `DEPARTMENT_ID`) VALUES ('402880ec780f061f01780f0622690034', '1961-09-19', '2020-04-13',
-            'Galina', 'Bonifacievna', 'Kaverina', '402880ec780f061f01780f0622680003');
-            INSERT INTO `project`.`employee` (`ID`, `DATE_OF_BIRTH`, `DATE_OF_EMPLOYMENT`, `NAME`, `PATRONYMIC`,
-            `SURNAME`, `DEPARTMENT_ID`) VALUES ('402880ec780f061f01780f0622690035', '1969-05-19', '2020-07-24',
-            'Glikeriya', 'Vladlenovna', 'Vodosviatskaya', '402880ec780f061f01780f0622680003');
-            INSERT INTO `project`.`employee` (`ID`, `DATE_OF_BIRTH`, `DATE_OF_EMPLOYMENT`, `NAME`, `PATRONYMIC`,
-            `SURNAME`, `DEPARTMENT_ID`) VALUES ('402880ec780f061f01780f0622690036', '1975-01-05', '2020-06-22',
-            'Pelageya', 'Maksimilianovna', 'Mikulina', '402880ec780f061f01780f0622680003');
-            INSERT INTO `project`.`employee` (`ID`, `DATE_OF_BIRTH`, `DATE_OF_EMPLOYMENT`, `NAME`, `PATRONYMIC`,
-            `SURNAME`, `DEPARTMENT_ID`) VALUES ('402880ec780f061f01780f0622690037', '1985-09-18', '2020-06-06',
-            'Oleg', 'Varlaamovich', 'Glagolev', '402880ec780f061f01780f06225b0000');
-            INSERT INTO `project`.`employee` (`ID`, `DATE_OF_BIRTH`, `DATE_OF_EMPLOYMENT`, `NAME`, `PATRONYMIC`,
-            `SURNAME`, `DEPARTMENT_ID`) VALUES ('402880ec780f061f01780f0622690038', '1984-05-27', '2020-04-02',
-            'Anisim', 'Nikodimovich', 'Goncharuk', '402880ec780f061f01780f06225b0000');
-            INSERT INTO `project`.`employee` (`ID`, `DATE_OF_BIRTH`, `DATE_OF_EMPLOYMENT`, `NAME`, `PATRONYMIC`,
-            `SURNAME`, `DEPARTMENT_ID`) VALUES ('402880ec780f061f01780f0622690039', '1967-07-14', '2020-04-02',
-            'Grigoriy', 'Ananievich', 'Vodynsky', '402880ec780f061f01780f06225b0000');
-            INSERT INTO `project`.`employee` (`ID`, `DATE_OF_BIRTH`, `DATE_OF_EMPLOYMENT`, `NAME`, `PATRONYMIC`,
-            `SURNAME`, `DEPARTMENT_ID`) VALUES ('402880ec780f061f01780f0622690040', '1971-10-23', '2020-02-24',
-            'Urvan', 'Patapievich', 'Kirponos', '402880ec780f061f01780f06225b0000');
-            INSERT INTO `project`.`employee` (`ID`, `DATE_OF_BIRTH`, `DATE_OF_EMPLOYMENT`, `NAME`, `PATRONYMIC`,
-            `SURNAME`, `DEPARTMENT_ID`) VALUES ('402880ec780f061f01780f0622690041', '1981-02-24', '2020-02-13',
-            'Akila', 'Avraamievich', 'Butenev', '402880ec780f061f01780f06225b0000');
-            INSERT INTO `project`.`employee` (`ID`, `DATE_OF_BIRTH`, `DATE_OF_EMPLOYMENT`, `NAME`, `PATRONYMIC`,
-            `SURNAME`, `DEPARTMENT_ID`) VALUES ('402880ec780f061f01780f0622690042', '1984-09-21', '2020-07-08',
-            'Dosifey', 'Dementyevich', 'Starodubsky', '402880ec780f061f01780f06225b0000');
-            INSERT INTO `project`.`employee` (`ID`, `DATE_OF_BIRTH`, `DATE_OF_EMPLOYMENT`, `NAME`, `PATRONYMIC`,
-            `SURNAME`, `DEPARTMENT_ID`) VALUES ('402880ec780f061f01780f0622690043', '1971-10-28', '2020-11-02',
-            'Rafail', 'Prohorovich', 'Valtsov', '402880ec780f061f01780f06225b0000');
-            INSERT INTO `project`.`employee` (`ID`, `DATE_OF_BIRTH`, `DATE_OF_EMPLOYMENT`, `NAME`, `PATRONYMIC`,
-            `SURNAME`, `DEPARTMENT_ID`) VALUES ('402880ec780f061f01780f0622690044', '1968-03-09', '2020-09-09',
-            'Agafonik', 'Kazimirovich', 'Koshelev', '402880ec780f061f01780f06225b0000');
-            INSERT INTO `project`.`employee` (`ID`, `DATE_OF_BIRTH`, `DATE_OF_EMPLOYMENT`, `NAME`, `PATRONYMIC`,
-            `SURNAME`, `DEPARTMENT_ID`) VALUES ('402880ec780f061f01780f0622690045', '1988-03-06', '2020-07-08',
-            'Tit', 'Arturovich', 'Savin', '402880ec780f061f01780f06225b0000');
-            INSERT INTO `project`.`employee` (`ID`, `DATE_OF_BIRTH`, `DATE_OF_EMPLOYMENT`, `NAME`, `PATRONYMIC`,
-            `SURNAME`, `DEPARTMENT_ID`) VALUES ('402880ec780f061f01780f0622690046', '1985-06-09', '2020-08-09',
-            'Nastasiy', 'Vladlenovich', 'Yablochkov', '402880ec780f061f01780f06225b0000');
-            INSERT INTO `project`.`employee` (`ID`, `DATE_OF_BIRTH`, `DATE_OF_EMPLOYMENT`, `NAME`, `PATRONYMIC`,
-            `SURNAME`, `DEPARTMENT_ID`) VALUES ('402880ec780f061f01780f0622690047', '1984-05-27', '2020-02-02',
-            'Karl', 'Evstigneevich', 'Lavrov', '402880ec780f061f01780f06225b0000');
-            INSERT INTO `project`.`employee` (`ID`, `DATE_OF_BIRTH`, `DATE_OF_EMPLOYMENT`, `NAME`, `PATRONYMIC`,
-            `SURNAME`) VALUES ('402880ec780f061f01780f0622690048', '1998-01-17', '2020-06-09', 'Porfiriy',
-            'Silantievich', 'Samoylov');
-            INSERT INTO `project`.`employee` (`ID`, `DATE_OF_BIRTH`, `DATE_OF_EMPLOYMENT`, `NAME`, `PATRONYMIC`,
-            `SURNAME`) VALUES ('402880ec780f061f01780f0622690049', '1987-01-21', '2020-04-02', 'Prohor',
-            'Vlasovich', 'Kvashnin');
-            INSERT INTO `project`.`employee` (`ID`, `DATE_OF_BIRTH`, `DATE_OF_EMPLOYMENT`, `NAME`, `PATRONYMIC`,
-            `SURNAME`) VALUES ('402880ec780f061f01780f0622690050', '1967-07-14', '2020-07-13', 'Emilian',
-            'Severinovich', 'Moiseev');
-
-        </sql>
-    </changeSet>
-
-    <changeSet id="9" author="root">
-        <sql>
-            INSERT INTO `project`.`emailaddress` (`ID`, `EMAIL`, `EMAIL_CATEGORY`, `EMPLOYEE_ID`)
-            VALUES ('402880ec780f061f01780f0622690051', 'wnhborq@outlook.com', 'OFFICIAL',
-            '402880ec780f061f01780f0622690007');
-            INSERT INTO `project`.`emailaddress` (`ID`, `EMAIL`, `EMAIL_CATEGORY`, `EMPLOYEE_ID`)
-            VALUES ('402880ec780f061f01780f0622690052', 'gq@yandex.ru', 'OFFICIAL',
-            '402880ec780f061f01780f0622690008');
-            INSERT INTO `project`.`emailaddress` (`ID`, `EMAIL`, `EMAIL_CATEGORY`, `EMPLOYEE_ID`)
-            VALUES ('402880ec780f061f01780f0622690053', 'ic0pu@outlook.com', 'OFFICIAL',
-            '402880ec780f061f01780f0622690009');
-            INSERT INTO `project`.`emailaddress` (`ID`, `EMAIL`, `EMAIL_CATEGORY`, `EMPLOYEE_ID`)
-            VALUES ('402880ec780f061f01780f0622690054', 'o7khr@yandex.ru', 'OFFICIAL',
-            '402880ec780f061f01780f0622690010');
-            INSERT INTO `project`.`emailaddress` (`ID`, `EMAIL`, `EMAIL_CATEGORY`, `EMPLOYEE_ID`)
-            VALUES ('402880ec780f061f01780f0622690055', '2shlaq@outlook.com', 'OFFICIAL',
-            '402880ec780f061f01780f0622690011');
-            INSERT INTO `project`.`emailaddress` (`ID`, `EMAIL`, `EMAIL_CATEGORY`, `EMPLOYEE_ID`)
-            VALUES ('402880ec780f061f01780f0622690056', 'cdbw@yandex.ru', 'OFFICIAL',
-            '402880ec780f061f01780f0622690012');
-            INSERT INTO `project`.`emailaddress` (`ID`, `EMAIL`, `EMAIL_CATEGORY`, `EMPLOYEE_ID`)
-            VALUES ('402880ec780f061f01780f0622690057', 'wrts90puk@yandex.ru', 'OFFICIAL',
-            '402880ec780f061f01780f0622690013');
-            INSERT INTO `project`.`emailaddress` (`ID`, `EMAIL`, `EMAIL_CATEGORY`, `EMPLOYEE_ID`)
-            VALUES ('402880ec780f061f01780f0622690058', 'yxunv@gmail.com', 'OFFICIAL',
-            '402880ec780f061f01780f0622690014');
-            INSERT INTO `project`.`emailaddress` (`ID`, `EMAIL`, `EMAIL_CATEGORY`, `EMPLOYEE_ID`)
-            VALUES ('402880ec780f061f01780f0622690059', '7y@yandex.ru', 'OFFICIAL',
-            '402880ec780f061f01780f0622690015');
-            INSERT INTO `project`.`emailaddress` (`ID`, `EMAIL`, `EMAIL_CATEGORY`, `EMPLOYEE_ID`)
-            VALUES ('402880ec780f061f01780f0622690060', '6@mail.ru', 'OFFICIAL',
-            '402880ec780f061f01780f0622690016');
-            INSERT INTO `project`.`emailaddress` (`ID`, `EMAIL`, `EMAIL_CATEGORY`, `EMPLOYEE_ID`)
-            VALUES ('402880ec780f061f01780f0622690061', 'k8sjebg1y@mail.ru', 'OFFICIAL',
-            '402880ec780f061f01780f0622690017');
-            INSERT INTO `project`.`emailaddress` (`ID`, `EMAIL`, `EMAIL_CATEGORY`, `EMPLOYEE_ID`)
-            VALUES ('402880ec780f061f01780f0622690062', 'jirbold@gmail.com', 'OFFICIAL',
-            '402880ec780f061f01780f0622690018');
-            INSERT INTO `project`.`emailaddress` (`ID`, `EMAIL`, `EMAIL_CATEGORY`, `EMPLOYEE_ID`)
-            VALUES ('402880ec780f061f01780f0622690063', 'u7yhwf1vb@mail.ru', 'OFFICIAL',
-            '402880ec780f061f01780f0622690019');
-            INSERT INTO `project`.`emailaddress` (`ID`, `EMAIL`, `EMAIL_CATEGORY`, `EMPLOYEE_ID`)
-            VALUES ('402880ec780f061f01780f0622690064', 'f@outlook.com', 'OFFICIAL',
-            '402880ec780f061f01780f0622690020');
-            INSERT INTO `project`.`emailaddress` (`ID`, `EMAIL`, `EMAIL_CATEGORY`, `EMPLOYEE_ID`)
-            VALUES ('402880ec780f061f01780f0622690065', 'gjkhp@mail.ru', 'OFFICIAL',
-            '402880ec780f061f01780f0622690021');
-            INSERT INTO `project`.`emailaddress` (`ID`, `EMAIL`, `EMAIL_CATEGORY`, `EMPLOYEE_ID`)
-            VALUES ('402880ec780f061f01780f0622690066', 'wyalkxfde@gmail.com', 'OFFICIAL',
-            '402880ec780f061f01780f0622690022');
-            INSERT INTO `project`.`emailaddress` (`ID`, `EMAIL`, `EMAIL_CATEGORY`, `EMPLOYEE_ID`)
-            VALUES ('402880ec780f061f01780f0622690067', 'f245n@outlook.com', 'OFFICIAL',
-            '402880ec780f061f01780f0622690023');
-            INSERT INTO `project`.`emailaddress` (`ID`, `EMAIL`, `EMAIL_CATEGORY`, `EMPLOYEE_ID`)
-            VALUES ('402880ec780f061f01780f0622690068', 'w@outlook.com', 'OFFICIAL',
-            '402880ec780f061f01780f0622690024');
-            INSERT INTO `project`.`emailaddress` (`ID`, `EMAIL`, `EMAIL_CATEGORY`, `EMPLOYEE_ID`)
-            VALUES ('402880ec780f061f01780f0622690072', 'js3kyopz@mail.ru', 'OFFICIAL',
-            '402880ec780f061f01780f0622690025');
-            INSERT INTO `project`.`emailaddress` (`ID`, `EMAIL`, `EMAIL_CATEGORY`, `EMPLOYEE_ID`)
-            VALUES ('402880ec780f061f01780f0622690073', 'o@outlook.com', 'OFFICIAL',
-            '402880ec780f061f01780f0622690026');
-            INSERT INTO `project`.`emailaddress` (`ID`, `EMAIL`, `EMAIL_CATEGORY`, `EMPLOYEE_ID`)
-            VALUES ('402880ec780f061f01780f0622690074', 'uzfd@mail.ru', 'OFFICIAL',
-            '402880ec780f061f01780f0622690027');
-            INSERT INTO `project`.`emailaddress` (`ID`, `EMAIL`, `EMAIL_CATEGORY`, `EMPLOYEE_ID`)
-            VALUES ('402880ec780f061f01780f0622690075', 'g@mail.ru', 'OFFICIAL',
-            '402880ec780f061f01780f0622690028');
-            INSERT INTO `project`.`emailaddress` (`ID`, `EMAIL`, `EMAIL_CATEGORY`, `EMPLOYEE_ID`)
-            VALUES ('402880ec780f061f01780f0622690076', 'dvjf0@gmail.com', 'OFFICIAL',
-            '402880ec780f061f01780f0622690029');
-            INSERT INTO `project`.`emailaddress` (`ID`, `EMAIL`, `EMAIL_CATEGORY`, `EMPLOYEE_ID`)
-            VALUES ('402880ec780f061f01780f0622690077', 'd2mc@outlook.com', 'OFFICIAL',
-            '402880ec780f061f01780f0622690030');
-            INSERT INTO `project`.`emailaddress` (`ID`, `EMAIL`, `EMAIL_CATEGORY`, `EMPLOYEE_ID`)
-            VALUES ('402880ec780f061f01780f0622690078', '06lk@mail.ru', 'OFFICIAL',
-            '402880ec780f061f01780f0622690031');
-            INSERT INTO `project`.`emailaddress` (`ID`, `EMAIL`, `EMAIL_CATEGORY`, `EMPLOYEE_ID`)
-            VALUES ('402880ec780f061f01780f0622690079', 'emhzysf2@yandex.ru', 'OFFICIAL',
-            '402880ec780f061f01780f0622690032');
-            INSERT INTO `project`.`emailaddress` (`ID`, `EMAIL`, `EMAIL_CATEGORY`, `EMPLOYEE_ID`)
-            VALUES ('402880ec780f061f01780f0622690080', 'd1w28lkg@yandex.ru', 'OFFICIAL',
-            '402880ec780f061f01780f0622690033');
-            INSERT INTO `project`.`emailaddress` (`ID`, `EMAIL`, `EMAIL_CATEGORY`, `EMPLOYEE_ID`)
-            VALUES ('402880ec780f061f01780f0622690081', 't93@mail.ru', 'PERSONAL',
-            '402880ec780f061f01780f0622690034');
-            INSERT INTO `project`.`emailaddress` (`ID`, `EMAIL`, `EMAIL_CATEGORY`, `EMPLOYEE_ID`)
-            VALUES ('402880ec780f061f01780f0622690082', 't3i@outlook.com', 'PERSONAL',
-            '402880ec780f061f01780f0622690035');
-            INSERT INTO `project`.`emailaddress` (`ID`, `EMAIL`, `EMAIL_CATEGORY`, `EMPLOYEE_ID`)
-            VALUES ('402880ec780f061f01780f0622690083', 't6ro3@gmail.com', 'PERSONAL',
-            '402880ec780f061f01780f0622690036');
-            INSERT INTO `project`.`emailaddress` (`ID`, `EMAIL`, `EMAIL_CATEGORY`, `EMPLOYEE_ID`)
-            VALUES ('402880ec780f061f01780f0622690084', '1zqnk0y7@yandex.ru', 'PERSONAL',
-            '402880ec780f061f01780f0622690037');
-            INSERT INTO `project`.`emailaddress` (`ID`, `EMAIL`, `EMAIL_CATEGORY`, `EMPLOYEE_ID`)
-            VALUES ('402880ec780f061f01780f0622690085', '768ptl4nv@gmail.com', 'PERSONAL',
-            '402880ec780f061f01780f0622690038');
-            INSERT INTO `project`.`emailaddress` (`ID`, `EMAIL`, `EMAIL_CATEGORY`, `EMPLOYEE_ID`)
-            VALUES ('402880ec780f061f01780f0622690086', 'bzq3yh2c1@mail.ru', 'PERSONAL',
-            '402880ec780f061f01780f0622690039');
-            INSERT INTO `project`.`emailaddress` (`ID`, `EMAIL`, `EMAIL_CATEGORY`, `EMPLOYEE_ID`)
-            VALUES ('402880ec780f061f01780f0622690087', '78k3dvwx@outlook.com', 'PERSONAL',
-            '402880ec780f061f01780f0622690040');
-            INSERT INTO `project`.`emailaddress` (`ID`, `EMAIL`, `EMAIL_CATEGORY`, `EMPLOYEE_ID`)
-            VALUES ('402880ec780f061f01780f0622690088', 'fe8obp@mail.ru', 'PERSONAL',
-            '402880ec780f061f01780f0622690041');
-            INSERT INTO `project`.`emailaddress` (`ID`, `EMAIL`, `EMAIL_CATEGORY`, `EMPLOYEE_ID`)
-            VALUES ('402880ec780f061f01780f0622690089', 'cxh2daw8@outlook.com', 'PERSONAL',
-            '402880ec780f061f01780f0622690042');
-            INSERT INTO `project`.`emailaddress` (`ID`, `EMAIL`, `EMAIL_CATEGORY`, `EMPLOYEE_ID`)
-            VALUES ('402880ec780f061f01780f0622690090', 'lrsdy5p@yandex.ru', 'OFFICIAL',
-            '402880ec780f061f01780f0622690043');
-            INSERT INTO `project`.`emailaddress` (`ID`, `EMAIL`, `EMAIL_CATEGORY`, `EMPLOYEE_ID`)
-            VALUES ('402880ec780f061f01780f0622690091', '2de17h@mail.ru', 'OFFICIAL',
-            '402880ec780f061f01780f0622690044');
-            INSERT INTO `project`.`emailaddress` (`ID`, `EMAIL`, `EMAIL_CATEGORY`, `EMPLOYEE_ID`)
-            VALUES ('402880ec780f061f01780f0622690092', 'we3l08z5@gmail.com', 'OFFICIAL',
-            '402880ec780f061f01780f0622690045');
-            INSERT INTO `project`.`emailaddress` (`ID`, `EMAIL`, `EMAIL_CATEGORY`, `EMPLOYEE_ID`)
-            VALUES ('402880ec780f061f01780f0622690093', 'i8ovxn2f@gmail.com', 'OFFICIAL',
-            '402880ec780f061f01780f0622690046');
-            INSERT INTO `project`.`emailaddress` (`ID`, `EMAIL`, `EMAIL_CATEGORY`, `EMPLOYEE_ID`)
-            VALUES ('402880ec780f061f01780f0622690094', 'q4as80@outlook.com', 'PERSONAL',
-            '402880ec780f061f01780f0622690047');
-            INSERT INTO `project`.`emailaddress` (`ID`, `EMAIL`, `EMAIL_CATEGORY`, `EMPLOYEE_ID`)
-            VALUES ('402880ec780f061f01780f0622690095', 'opu@outlook.com', 'PERSONAL',
-            '402880ec780f061f01780f0622690048');
-            INSERT INTO `project`.`emailaddress` (`ID`, `EMAIL`, `EMAIL_CATEGORY`, `EMPLOYEE_ID`)
-            VALUES ('402880ec780f061f01780f0622690096', '5iar3l8k@yandex.ru', 'PERSONAL',
-            '402880ec780f061f01780f0622690049');
-            INSERT INTO `project`.`emailaddress` (`ID`, `EMAIL`, `EMAIL_CATEGORY`, `EMPLOYEE_ID`)
-            VALUES ('402880ec780f061f01780f0622690097', '4zegxla@mail.ru', 'PERSONAL',
-            '402880ec780f061f01780f0622690050');
-        </sql>
-    </changeSet>
-
-    <changeSet id="10" author="root">
         <sql>
             INSERT INTO `project`.`position` (`ID`, `NAME`, `PURPOSE`, `EMPLOYEE_ID`) VALUES ('1', 'Director',
             'Direction', '402880ec780f061f01780f0622690011');
@@ -483,153 +392,149 @@
         </sql>
     </changeSet>
 
-    <changeSet id="11" author="root">
+    <changeSet id="9" author="root">
         <sql>
-
-
-            INSERT INTO `project`.`phone_number`
-            (`ID`, `PHONE_NUMBER`, `PHONE_NUMBER_CATEGORY`, `PHONE_OPERATOR`, `DEPARTMENT_ID`, `EMPLOYEE_ID`) VALUES
+            INSERT INTO `project`.`PHONE_NUMBER`
+            (`ID`, `NUMBER`, `PHONE_NUMBER_CATEGORY`, `PHONE_OPERATOR`, `DEPARTMENT_ID`, `EMPLOYEE_ID`) VALUES
             ('402880ec780f061f01780f0622690098','375(85)424-55-21','OFFICIAL','MTS',NULL,'402880ec780f061f01780f0622690007');
-            INSERT INTO `project`.`phone_number`
-            (`ID`, `PHONE_NUMBER`, `PHONE_NUMBER_CATEGORY`, `PHONE_OPERATOR`, `DEPARTMENT_ID`, `EMPLOYEE_ID`) VALUES
+            INSERT INTO `project`.`PHONE_NUMBER`
+            (`ID`, `NUMBER`, `PHONE_NUMBER_CATEGORY`, `PHONE_OPERATOR`, `DEPARTMENT_ID`, `EMPLOYEE_ID`) VALUES
             ('402880ec780f061f01780f0622690099','375(20)472-60-04','OFFICIAL','BELTELECOM',NULL,'402880ec780f061f01780f0622690008');
-            INSERT INTO `project`.`phone_number`
-            (`ID`, `PHONE_NUMBER`, `PHONE_NUMBER_CATEGORY`, `PHONE_OPERATOR`, `DEPARTMENT_ID`, `EMPLOYEE_ID`) VALUES
+            INSERT INTO `project`.`PHONE_NUMBER`
+            (`ID`, `NUMBER`, `PHONE_NUMBER_CATEGORY`, `PHONE_OPERATOR`, `DEPARTMENT_ID`, `EMPLOYEE_ID`) VALUES
             ('402880ec780f061f01780f0622690100','375(55)940-46-23','OFFICIAL','LIFE',NULL,'402880ec780f061f01780f0622690009');
-            INSERT INTO `project`.`phone_number`
-            (`ID`, `PHONE_NUMBER`, `PHONE_NUMBER_CATEGORY`, `PHONE_OPERATOR`, `DEPARTMENT_ID`, `EMPLOYEE_ID`) VALUES
+            INSERT INTO `project`.`PHONE_NUMBER`
+            (`ID`, `NUMBER`, `PHONE_NUMBER_CATEGORY`, `PHONE_OPERATOR`, `DEPARTMENT_ID`, `EMPLOYEE_ID`) VALUES
             ('402880ec780f061f01780f0622690101','375(78)130-45-16','OFFICIAL','LIFE',NULL,'402880ec780f061f01780f0622690010');
-            INSERT INTO `project`.`phone_number`
-            (`ID`, `PHONE_NUMBER`, `PHONE_NUMBER_CATEGORY`, `PHONE_OPERATOR`, `DEPARTMENT_ID`, `EMPLOYEE_ID`) VALUES
+            INSERT INTO `project`.`PHONE_NUMBER`
+            (`ID`, `NUMBER`, `PHONE_NUMBER_CATEGORY`, `PHONE_OPERATOR`, `DEPARTMENT_ID`, `EMPLOYEE_ID`) VALUES
             ('402880ec780f061f01780f0622690102','375(22)825-34-08','OFFICIAL','OTHER',NULL,'402880ec780f061f01780f0622690011');
-            INSERT INTO `project`.`phone_number`
-            (`ID`, `PHONE_NUMBER`, `PHONE_NUMBER_CATEGORY`, `PHONE_OPERATOR`, `DEPARTMENT_ID`, `EMPLOYEE_ID`) VALUES
+            INSERT INTO `project`.`PHONE_NUMBER`
+            (`ID`, `NUMBER`, `PHONE_NUMBER_CATEGORY`, `PHONE_OPERATOR`, `DEPARTMENT_ID`, `EMPLOYEE_ID`) VALUES
             ('402880ec780f061f01780f0622690103','375(03)596-81-36','OFFICIAL','MTS',NULL,'402880ec780f061f01780f0622690012');
-            INSERT INTO `project`.`phone_number`
-            (`ID`, `PHONE_NUMBER`, `PHONE_NUMBER_CATEGORY`, `PHONE_OPERATOR`, `DEPARTMENT_ID`, `EMPLOYEE_ID`) VALUES
+            INSERT INTO `project`.`PHONE_NUMBER`
+            (`ID`, `NUMBER`, `PHONE_NUMBER_CATEGORY`, `PHONE_OPERATOR`, `DEPARTMENT_ID`, `EMPLOYEE_ID`) VALUES
             ('402880ec780f061f01780f0622690104','375(55)576-19-84','OFFICIAL','OTHER',NULL,'402880ec780f061f01780f0622690013');
-            INSERT INTO `project`.`phone_number`
-            (`ID`, `PHONE_NUMBER`, `PHONE_NUMBER_CATEGORY`, `PHONE_OPERATOR`, `DEPARTMENT_ID`, `EMPLOYEE_ID`) VALUES
+            INSERT INTO `project`.`PHONE_NUMBER`
+            (`ID`, `NUMBER`, `PHONE_NUMBER_CATEGORY`, `PHONE_OPERATOR`, `DEPARTMENT_ID`, `EMPLOYEE_ID`) VALUES
             ('402880ec780f061f01780f0622690105','375(67)108-41-18','OFFICIAL','LIFE',NULL,'402880ec780f061f01780f0622690014');
-            INSERT INTO `project`.`phone_number`
-            (`ID`, `PHONE_NUMBER`, `PHONE_NUMBER_CATEGORY`, `PHONE_OPERATOR`, `DEPARTMENT_ID`, `EMPLOYEE_ID`) VALUES
+            INSERT INTO `project`.`PHONE_NUMBER`
+            (`ID`, `NUMBER`, `PHONE_NUMBER_CATEGORY`, `PHONE_OPERATOR`, `DEPARTMENT_ID`, `EMPLOYEE_ID`) VALUES
             ('402880ec780f061f01780f0622690106','375(145)718-31-42','OFFICIAL','LIFE',NULL,'402880ec780f061f01780f0622690015');
-            INSERT INTO `project`.`phone_number`
-            (`ID`, `PHONE_NUMBER`, `PHONE_NUMBER_CATEGORY`, `PHONE_OPERATOR`, `DEPARTMENT_ID`, `EMPLOYEE_ID`) VALUES
+            INSERT INTO `project`.`PHONE_NUMBER`
+            (`ID`, `NUMBER`, `PHONE_NUMBER_CATEGORY`, `PHONE_OPERATOR`, `DEPARTMENT_ID`, `EMPLOYEE_ID`) VALUES
             ('402880ec780f061f01780f0622690107','375(19)364-06-41','OFFICIAL','OTHER',NULL,'402880ec780f061f01780f0622690016');
-            INSERT INTO `project`.`phone_number`
-            (`ID`, `PHONE_NUMBER`, `PHONE_NUMBER_CATEGORY`, `PHONE_OPERATOR`, `DEPARTMENT_ID`, `EMPLOYEE_ID`) VALUES
+            INSERT INTO `project`.`PHONE_NUMBER`
+            (`ID`, `NUMBER`, `PHONE_NUMBER_CATEGORY`, `PHONE_OPERATOR`, `DEPARTMENT_ID`, `EMPLOYEE_ID`) VALUES
             ('402880ec780f061f01780f0622690108','375(34)468-99-61','OFFICIAL','OTHER',NULL,'402880ec780f061f01780f0622690017');
-            INSERT INTO `project`.`phone_number`
-            (`ID`, `PHONE_NUMBER`, `PHONE_NUMBER_CATEGORY`, `PHONE_OPERATOR`, `DEPARTMENT_ID`, `EMPLOYEE_ID`) VALUES
+            INSERT INTO `project`.`PHONE_NUMBER`
+            (`ID`, `NUMBER`, `PHONE_NUMBER_CATEGORY`, `PHONE_OPERATOR`, `DEPARTMENT_ID`, `EMPLOYEE_ID`) VALUES
             ('402880ec780f061f01780f0622690109','375(93)419-69-32','OFFICIAL','OTHER',NULL,'402880ec780f061f01780f0622690018');
-            INSERT INTO `project`.`phone_number`
-            (`ID`, `PHONE_NUMBER`, `PHONE_NUMBER_CATEGORY`, `PHONE_OPERATOR`, `DEPARTMENT_ID`, `EMPLOYEE_ID`) VALUES
+            INSERT INTO `project`.`PHONE_NUMBER`
+            (`ID`, `NUMBER`, `PHONE_NUMBER_CATEGORY`, `PHONE_OPERATOR`, `DEPARTMENT_ID`, `EMPLOYEE_ID`) VALUES
             ('402880ec780f061f01780f0622690110','375(38)511-36-57','OFFICIAL','OTHER',NULL,'402880ec780f061f01780f0622690019');
-            INSERT INTO `project`.`phone_number`
-            (`ID`, `PHONE_NUMBER`, `PHONE_NUMBER_CATEGORY`, `PHONE_OPERATOR`, `DEPARTMENT_ID`, `EMPLOYEE_ID`) VALUES
+            INSERT INTO `project`.`PHONE_NUMBER`
+            (`ID`, `NUMBER`, `PHONE_NUMBER_CATEGORY`, `PHONE_OPERATOR`, `DEPARTMENT_ID`, `EMPLOYEE_ID`) VALUES
             ('402880ec780f061f01780f0622690111','375(47)089-91-21','OFFICIAL','A1',NULL,'402880ec780f061f01780f0622690020');
-            INSERT INTO `project`.`phone_number`
-            (`ID`, `PHONE_NUMBER`, `PHONE_NUMBER_CATEGORY`, `PHONE_OPERATOR`, `DEPARTMENT_ID`, `EMPLOYEE_ID`) VALUES
+            INSERT INTO `project`.`PHONE_NUMBER`
+            (`ID`, `NUMBER`, `PHONE_NUMBER_CATEGORY`, `PHONE_OPERATOR`, `DEPARTMENT_ID`, `EMPLOYEE_ID`) VALUES
             ('402880ec780f061f01780f0622690112','375(63)325-56-84','OFFICIAL','MTS',NULL,'402880ec780f061f01780f0622690021');
-            INSERT INTO `project`.`phone_number`
-            (`ID`, `PHONE_NUMBER`, `PHONE_NUMBER_CATEGORY`, `PHONE_OPERATOR`, `DEPARTMENT_ID`, `EMPLOYEE_ID`) VALUES
+            INSERT INTO `project`.`PHONE_NUMBER`
+            (`ID`, `NUMBER`, `PHONE_NUMBER_CATEGORY`, `PHONE_OPERATOR`, `DEPARTMENT_ID`, `EMPLOYEE_ID`) VALUES
             ('402880ec780f061f01780f0622690113','375(39)230-06-57','OFFICIAL','OTHER',NULL,'402880ec780f061f01780f0622690022');
-            INSERT INTO `project`.`phone_number`
-            (`ID`, `PHONE_NUMBER`, `PHONE_NUMBER_CATEGORY`, `PHONE_OPERATOR`, `DEPARTMENT_ID`, `EMPLOYEE_ID`) VALUES
+            INSERT INTO `project`.`PHONE_NUMBER`
+            (`ID`, `NUMBER`, `PHONE_NUMBER_CATEGORY`, `PHONE_OPERATOR`, `DEPARTMENT_ID`, `EMPLOYEE_ID`) VALUES
             ('402880ec780f061f01780f0622690114','375(55)170-71-21','OFFICIAL','OTHER',NULL,'402880ec780f061f01780f0622690023');
-            INSERT INTO `project`.`phone_number`
-            (`ID`, `PHONE_NUMBER`, `PHONE_NUMBER_CATEGORY`, `PHONE_OPERATOR`, `DEPARTMENT_ID`, `EMPLOYEE_ID`) VALUES
+            INSERT INTO `project`.`PHONE_NUMBER`
+            (`ID`, `NUMBER`, `PHONE_NUMBER_CATEGORY`, `PHONE_OPERATOR`, `DEPARTMENT_ID`, `EMPLOYEE_ID`) VALUES
             ('402880ec780f061f01780f0622690115','375(86)050-03-53','OFFICIAL','OTHER',NULL,'402880ec780f061f01780f0622690024');
-            INSERT INTO `project`.`phone_number`
-            (`ID`, `PHONE_NUMBER`, `PHONE_NUMBER_CATEGORY`, `PHONE_OPERATOR`, `DEPARTMENT_ID`, `EMPLOYEE_ID`) VALUES
+            INSERT INTO `project`.`PHONE_NUMBER`
+            (`ID`, `NUMBER`, `PHONE_NUMBER_CATEGORY`, `PHONE_OPERATOR`, `DEPARTMENT_ID`, `EMPLOYEE_ID`) VALUES
             ('402880ec780f061f01780f0622690116','375(61)178-02-61','OFFICIAL','OTHER',NULL,'402880ec780f061f01780f0622690025');
-            INSERT INTO `project`.`phone_number`
-            (`ID`, `PHONE_NUMBER`, `PHONE_NUMBER_CATEGORY`, `PHONE_OPERATOR`, `DEPARTMENT_ID`, `EMPLOYEE_ID`) VALUES
+            INSERT INTO `project`.`PHONE_NUMBER`
+            (`ID`, `NUMBER`, `PHONE_NUMBER_CATEGORY`, `PHONE_OPERATOR`, `DEPARTMENT_ID`, `EMPLOYEE_ID`) VALUES
             ('402880ec780f061f01780f0622690117','375(69)905-77-53','OFFICIAL','MTS',NULL,'402880ec780f061f01780f0622690026');
-            INSERT INTO `project`.`phone_number`
-            (`ID`, `PHONE_NUMBER`, `PHONE_NUMBER_CATEGORY`, `PHONE_OPERATOR`, `DEPARTMENT_ID`, `EMPLOYEE_ID`) VALUES
+            INSERT INTO `project`.`PHONE_NUMBER`
+            (`ID`, `NUMBER`, `PHONE_NUMBER_CATEGORY`, `PHONE_OPERATOR`, `DEPARTMENT_ID`, `EMPLOYEE_ID`) VALUES
             ('402880ec780f061f01780f0622690118','375(14)116-54-77','OFFICIAL','BELTELECOM',NULL,'402880ec780f061f01780f0622690027');
-            INSERT INTO `project`.`phone_number`
-            (`ID`, `PHONE_NUMBER`, `PHONE_NUMBER_CATEGORY`, `PHONE_OPERATOR`, `DEPARTMENT_ID`, `EMPLOYEE_ID`) VALUES
+            INSERT INTO `project`.`PHONE_NUMBER`
+            (`ID`, `NUMBER`, `PHONE_NUMBER_CATEGORY`, `PHONE_OPERATOR`, `DEPARTMENT_ID`, `EMPLOYEE_ID`) VALUES
             ('402880ec780f061f01780f0622690119','375(46)187-87-97','OFFICIAL','OTHER',NULL,'402880ec780f061f01780f0622690028');
-            INSERT INTO `project`.`phone_number`
-            (`ID`, `PHONE_NUMBER`, `PHONE_NUMBER_CATEGORY`, `PHONE_OPERATOR`, `DEPARTMENT_ID`, `EMPLOYEE_ID`) VALUES
+            INSERT INTO `project`.`PHONE_NUMBER`
+            (`ID`, `NUMBER`, `PHONE_NUMBER_CATEGORY`, `PHONE_OPERATOR`, `DEPARTMENT_ID`, `EMPLOYEE_ID`) VALUES
             ('402880ec780f061f01780f0622690120','375(44)222-16-22','OFFICIAL','A1',NULL,'402880ec780f061f01780f0622690029');
-            INSERT INTO `project`.`phone_number`
-            (`ID`, `PHONE_NUMBER`, `PHONE_NUMBER_CATEGORY`, `PHONE_OPERATOR`, `DEPARTMENT_ID`, `EMPLOYEE_ID`) VALUES
+            INSERT INTO `project`.`PHONE_NUMBER`
+            (`ID`, `NUMBER`, `PHONE_NUMBER_CATEGORY`, `PHONE_OPERATOR`, `DEPARTMENT_ID`, `EMPLOYEE_ID`) VALUES
             ('402880ec780f061f01780f0622690121','375(36)902-68-44','OFFICIAL','LIFE',NULL,'402880ec780f061f01780f0622690030');
-            INSERT INTO `project`.`phone_number`
-            (`ID`, `PHONE_NUMBER`, `PHONE_NUMBER_CATEGORY`, `PHONE_OPERATOR`, `DEPARTMENT_ID`, `EMPLOYEE_ID`) VALUES
+            INSERT INTO `project`.`PHONE_NUMBER`
+            (`ID`, `NUMBER`, `PHONE_NUMBER_CATEGORY`, `PHONE_OPERATOR`, `DEPARTMENT_ID`, `EMPLOYEE_ID`) VALUES
             ('402880ec780f061f01780f0622690122','375(47)708-59-11','OFFICIAL','A1',NULL,'402880ec780f061f01780f0622690031');
-            INSERT INTO `project`.`phone_number`
-            (`ID`, `PHONE_NUMBER`, `PHONE_NUMBER_CATEGORY`, `PHONE_OPERATOR`, `DEPARTMENT_ID`, `EMPLOYEE_ID`) VALUES
+            INSERT INTO `project`.`PHONE_NUMBER`
+            (`ID`, `NUMBER`, `PHONE_NUMBER_CATEGORY`, `PHONE_OPERATOR`, `DEPARTMENT_ID`, `EMPLOYEE_ID`) VALUES
             ('402880ec780f061f01780f0622690123','375(35)260-88-36','OFFICIAL','LIFE',NULL,'402880ec780f061f01780f0622690032');
-            INSERT INTO `project`.`phone_number`
-            (`ID`, `PHONE_NUMBER`, `PHONE_NUMBER_CATEGORY`, `PHONE_OPERATOR`, `DEPARTMENT_ID`, `EMPLOYEE_ID`) VALUES
+            INSERT INTO `project`.`PHONE_NUMBER`
+            (`ID`, `NUMBER`, `PHONE_NUMBER_CATEGORY`, `PHONE_OPERATOR`, `DEPARTMENT_ID`, `EMPLOYEE_ID`) VALUES
             ('402880ec780f061f01780f0622690124','375(37)312-74-56','OFFICIAL','MTS',NULL,'402880ec780f061f01780f0622690033');
-            INSERT INTO `project`.`phone_number`
-            (`ID`, `PHONE_NUMBER`, `PHONE_NUMBER_CATEGORY`, `PHONE_OPERATOR`, `DEPARTMENT_ID`, `EMPLOYEE_ID`) VALUES
+            INSERT INTO `project`.`PHONE_NUMBER`
+            (`ID`, `NUMBER`, `PHONE_NUMBER_CATEGORY`, `PHONE_OPERATOR`, `DEPARTMENT_ID`, `EMPLOYEE_ID`) VALUES
             ('402880ec780f061f01780f0622690125','375(97)528-26-17','OFFICIAL','LIFE',NULL,'402880ec780f061f01780f0622690034');
-            INSERT INTO `project`.`phone_number`
-            (`ID`, `PHONE_NUMBER`, `PHONE_NUMBER_CATEGORY`, `PHONE_OPERATOR`, `DEPARTMENT_ID`, `EMPLOYEE_ID`) VALUES
+            INSERT INTO `project`.`PHONE_NUMBER`
+            (`ID`, `NUMBER`, `PHONE_NUMBER_CATEGORY`, `PHONE_OPERATOR`, `DEPARTMENT_ID`, `EMPLOYEE_ID`) VALUES
             ('402880ec780f061f01780f0622690126','375(34)288-82-76','OFFICIAL','LIFE',NULL,'402880ec780f061f01780f0622690035');
-            INSERT INTO `project`.`phone_number`
-            (`ID`, `PHONE_NUMBER`, `PHONE_NUMBER_CATEGORY`, `PHONE_OPERATOR`, `DEPARTMENT_ID`, `EMPLOYEE_ID`) VALUES
+            INSERT INTO `project`.`PHONE_NUMBER`
+            (`ID`, `NUMBER`, `PHONE_NUMBER_CATEGORY`, `PHONE_OPERATOR`, `DEPARTMENT_ID`, `EMPLOYEE_ID`) VALUES
             ('402880ec780f061f01780f0622690127','375(17)921-53-02','OFFICIAL','BELTELECOM',NULL,'402880ec780f061f01780f0622690036');
-            INSERT INTO `project`.`phone_number`
-            (`ID`, `PHONE_NUMBER`, `PHONE_NUMBER_CATEGORY`, `PHONE_OPERATOR`, `DEPARTMENT_ID`, `EMPLOYEE_ID`) VALUES
+            INSERT INTO `project`.`PHONE_NUMBER`
+            (`ID`, `NUMBER`, `PHONE_NUMBER_CATEGORY`, `PHONE_OPERATOR`, `DEPARTMENT_ID`, `EMPLOYEE_ID`) VALUES
             ('402880ec780f061f01780f0622690128','375(33)195-26-02','OFFICIAL','LIFE',NULL,'402880ec780f061f01780f0622690037');
-            INSERT INTO `project`.`phone_number`
-            (`ID`, `PHONE_NUMBER`, `PHONE_NUMBER_CATEGORY`, `PHONE_OPERATOR`, `DEPARTMENT_ID`, `EMPLOYEE_ID`) VALUES
+            INSERT INTO `project`.`PHONE_NUMBER`
+            (`ID`, `NUMBER`, `PHONE_NUMBER_CATEGORY`, `PHONE_OPERATOR`, `DEPARTMENT_ID`, `EMPLOYEE_ID`) VALUES
             ('402880ec780f061f01780f0622690129','375(28)761-29-52','OFFICIAL','MTS',NULL,'402880ec780f061f01780f0622690038');
-            INSERT INTO `project`.`phone_number`
-            (`ID`, `PHONE_NUMBER`, `PHONE_NUMBER_CATEGORY`, `PHONE_OPERATOR`, `DEPARTMENT_ID`, `EMPLOYEE_ID`) VALUES
+            INSERT INTO `project`.`PHONE_NUMBER`
+            (`ID`, `NUMBER`, `PHONE_NUMBER_CATEGORY`, `PHONE_OPERATOR`, `DEPARTMENT_ID`, `EMPLOYEE_ID`) VALUES
             ('402880ec780f061f01780f0622690130','375(22)638-97-68','OFFICIAL','LIFE',NULL,'402880ec780f061f01780f0622690039');
-            INSERT INTO `project`.`phone_number`
-            (`ID`, `PHONE_NUMBER`, `PHONE_NUMBER_CATEGORY`, `PHONE_OPERATOR`, `DEPARTMENT_ID`, `EMPLOYEE_ID`) VALUES
+            INSERT INTO `project`.`PHONE_NUMBER`
+            (`ID`, `NUMBER`, `PHONE_NUMBER_CATEGORY`, `PHONE_OPERATOR`, `DEPARTMENT_ID`, `EMPLOYEE_ID`) VALUES
             ('402880ec780f061f01780f0622690131','375(34)628-66-89','OFFICIAL','LIFE',NULL,'402880ec780f061f01780f0622690040');
-            INSERT INTO `project`.`phone_number`
-            (`ID`, `PHONE_NUMBER`, `PHONE_NUMBER_CATEGORY`, `PHONE_OPERATOR`, `DEPARTMENT_ID`, `EMPLOYEE_ID`) VALUES
+            INSERT INTO `project`.`PHONE_NUMBER`
+            (`ID`, `NUMBER`, `PHONE_NUMBER_CATEGORY`, `PHONE_OPERATOR`, `DEPARTMENT_ID`, `EMPLOYEE_ID`) VALUES
             ('402880ec780f061f01780f0622690132','375(38)368-27-16','OFFICIAL','MTS',NULL,'402880ec780f061f01780f0622690041');
-            INSERT INTO `project`.`phone_number`
-            (`ID`, `PHONE_NUMBER`, `PHONE_NUMBER_CATEGORY`, `PHONE_OPERATOR`, `DEPARTMENT_ID`, `EMPLOYEE_ID`) VALUES
+            INSERT INTO `project`.`PHONE_NUMBER`
+            (`ID`, `NUMBER`, `PHONE_NUMBER_CATEGORY`, `PHONE_OPERATOR`, `DEPARTMENT_ID`, `EMPLOYEE_ID`) VALUES
             ('402880ec780f061f01780f0622690133','375(89)458-40-61','OFFICIAL','LIFE',NULL,'402880ec780f061f01780f0622690042');
-            INSERT INTO `project`.`phone_number`
-            (`ID`, `PHONE_NUMBER`, `PHONE_NUMBER_CATEGORY`, `PHONE_OPERATOR`, `DEPARTMENT_ID`, `EMPLOYEE_ID`) VALUES
+            INSERT INTO `project`.`PHONE_NUMBER`
+            (`ID`, `NUMBER`, `PHONE_NUMBER_CATEGORY`, `PHONE_OPERATOR`, `DEPARTMENT_ID`, `EMPLOYEE_ID`) VALUES
             ('402880ec780f061f01780f0622690134','375(60)124-87-72','OFFICIAL','OTHER',NULL,'402880ec780f061f01780f0622690043');
-            INSERT INTO `project`.`phone_number`
-            (`ID`, `PHONE_NUMBER`, `PHONE_NUMBER_CATEGORY`, `PHONE_OPERATOR`, `DEPARTMENT_ID`, `EMPLOYEE_ID`) VALUES
+            INSERT INTO `project`.`PHONE_NUMBER`
+            (`ID`, `NUMBER`, `PHONE_NUMBER_CATEGORY`, `PHONE_OPERATOR`, `DEPARTMENT_ID`, `EMPLOYEE_ID`) VALUES
             ('402880ec780f061f01780f0622690135','375(19)596-60-26','OFFICIAL','BELTELECOM',NULL,'402880ec780f061f01780f0622690044');
-            INSERT INTO `project`.`phone_number`
-            (`ID`, `PHONE_NUMBER`, `PHONE_NUMBER_CATEGORY`, `PHONE_OPERATOR`, `DEPARTMENT_ID`, `EMPLOYEE_ID`) VALUES
+            INSERT INTO `project`.`PHONE_NUMBER`
+            (`ID`, `NUMBER`, `PHONE_NUMBER_CATEGORY`, `PHONE_OPERATOR`, `DEPARTMENT_ID`, `EMPLOYEE_ID`) VALUES
             ('402880ec780f061f01780f0622690136','375(49)263-51-11','OFFICIAL','A1',NULL,'402880ec780f061f01780f0622690045');
-            INSERT INTO `project`.`phone_number`
-            (`ID`, `PHONE_NUMBER`, `PHONE_NUMBER_CATEGORY`, `PHONE_OPERATOR`, `DEPARTMENT_ID`, `EMPLOYEE_ID`) VALUES
+            INSERT INTO `project`.`PHONE_NUMBER`
+            (`ID`, `NUMBER`, `PHONE_NUMBER_CATEGORY`, `PHONE_OPERATOR`, `DEPARTMENT_ID`, `EMPLOYEE_ID`) VALUES
             ('402880ec780f061f01780f0622690137','375(89)633-27-44','OFFICIAL','LIFE',NULL,'402880ec780f061f01780f0622690046');
-            INSERT INTO `project`.`phone_number`
-            (`ID`, `PHONE_NUMBER`, `PHONE_NUMBER_CATEGORY`, `PHONE_OPERATOR`, `DEPARTMENT_ID`, `EMPLOYEE_ID`) VALUES
+            INSERT INTO `project`.`PHONE_NUMBER`
+            (`ID`, `NUMBER`, `PHONE_NUMBER_CATEGORY`, `PHONE_OPERATOR`, `DEPARTMENT_ID`, `EMPLOYEE_ID`) VALUES
             ('402880ec780f061f01780f0622690138','375(52)613-40-41','OFFICIAL','MTS',NULL,'402880ec780f061f01780f0622690047');
-            INSERT INTO `project`.`phone_number`
-            (`ID`, `PHONE_NUMBER`, `PHONE_NUMBER_CATEGORY`, `PHONE_OPERATOR`, `DEPARTMENT_ID`, `EMPLOYEE_ID`) VALUES
+            INSERT INTO `project`.`PHONE_NUMBER`
+            (`ID`, `NUMBER`, `PHONE_NUMBER_CATEGORY`, `PHONE_OPERATOR`, `DEPARTMENT_ID`, `EMPLOYEE_ID`) VALUES
             ('402880ec780f061f01780f0622690139','375(62)975-80-01','PERSONAL','LIFE',NULL,'402880ec780f061f01780f0622690048');
-            INSERT INTO `project`.`phone_number`
-            (`ID`, `PHONE_NUMBER`, `PHONE_NUMBER_CATEGORY`, `PHONE_OPERATOR`, `DEPARTMENT_ID`, `EMPLOYEE_ID`) VALUES
+            INSERT INTO `project`.`PHONE_NUMBER`
+            (`ID`, `NUMBER`, `PHONE_NUMBER_CATEGORY`, `PHONE_OPERATOR`, `DEPARTMENT_ID`, `EMPLOYEE_ID`) VALUES
             ('402880ec780f061f01780f0622690140','375(62)121-36-81','PERSONAL','MTS',NULL,'402880ec780f061f01780f0622690049');
-            INSERT INTO `project`.`phone_number`
-            (`ID`, `PHONE_NUMBER`, `PHONE_NUMBER_CATEGORY`, `PHONE_OPERATOR`, `DEPARTMENT_ID`, `EMPLOYEE_ID`) VALUES
+            INSERT INTO `project`.`PHONE_NUMBER`
+            (`ID`, `NUMBER`, `PHONE_NUMBER_CATEGORY`, `PHONE_OPERATOR`, `DEPARTMENT_ID`, `EMPLOYEE_ID`) VALUES
             ('402880ec780f061f01780f0622690141','375(15)926-74-94','PERSONAL','BELTELECOM',NULL,'402880ec780f061f01780f0622690050');
-            INSERT INTO `project`.`phone_number`
-            (`ID`, `PHONE_NUMBER`, `PHONE_NUMBER_CATEGORY`, `PHONE_OPERATOR`, `DEPARTMENT_ID`, `EMPLOYEE_ID`) VALUES
+            INSERT INTO `project`.`PHONE_NUMBER`
+            (`ID`, `NUMBER`, `PHONE_NUMBER_CATEGORY`, `PHONE_OPERATOR`, `DEPARTMENT_ID`, `EMPLOYEE_ID`) VALUES
             ('402880ec780f061f01780f0622690142','375(26)474-94-16','OFFICIAL','BELTELECOM','402880ec780f061f01780f06225b0000',NULL);
-            INSERT INTO `project`.`phone_number`
-            (`ID`, `PHONE_NUMBER`, `PHONE_NUMBER_CATEGORY`, `PHONE_OPERATOR`, `DEPARTMENT_ID`, `EMPLOYEE_ID`) VALUES
+            INSERT INTO `project`.`PHONE_NUMBER`
+            (`ID`, `NUMBER`, `PHONE_NUMBER_CATEGORY`, `PHONE_OPERATOR`, `DEPARTMENT_ID`, `EMPLOYEE_ID`) VALUES
             ('402880ec780f061f01780f0622690143','375(42)688-78-33','OFFICIAL','BELTELECOM','402880ec780f061f01780f0622680001',NULL);
-            INSERT INTO `project`.`phone_number`
-            (`ID`, `PHONE_NUMBER`, `PHONE_NUMBER_CATEGORY`, `PHONE_OPERATOR`, `DEPARTMENT_ID`, `EMPLOYEE_ID`) VALUES
+            INSERT INTO `project`.`PHONE_NUMBER`
+            (`ID`, `NUMBER`, `PHONE_NUMBER_CATEGORY`, `PHONE_OPERATOR`, `DEPARTMENT_ID`, `EMPLOYEE_ID`) VALUES
             ('402880ec780f061f01780f0622690144','375(22)211-82-83','OFFICIAL','BELTELECOM','402880ec780f061f01780f0622680002',NULL);
-
-
         </sql>
     </changeSet>
 </databaseChangeLog>

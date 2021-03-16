@@ -23,24 +23,44 @@ public class EmployeeDaoImpl implements EmployeeDao {
     @Override
     @Transactional()
     public List<Employee> getAllEmployeesInDepartment(String departmentId) {
-//        String query = "select * from Employee where department_id='" + departmentId + "';";
-//        List list = sessionFactory
-//                .getCurrentSession()
-//                .createSQLQuery(query).list();
-//        return list;
+        String query;
 
-        String query = "from Employee where department_id='" + departmentId + "'";
+        if (departmentId == null) {
+            query = "from Employee e join fetch e.positions where e.department.id is null";
+        } else {
+            query = "from Employee e join fetch e.positions where e.department.id='" + departmentId + "'";
+        }
         return sessionFactory
-                .getCurrentSession().createQuery(query, Employee.class)
+                .getCurrentSession()
+                .createQuery(query, Employee.class)
                 .list();
     }
 
     @Override
     @Transactional
     public Employee getEmployee(String id) {
-        return sessionFactory
+        String query = "from Employee e join fetch e.positions where e.id='" + id + "'";
+        List<Employee> employees = sessionFactory
                 .getCurrentSession()
-                .find(Employee.class, id);
+                .createQuery(query, Employee.class)
+                .list();
+
+        if (employees.size() > 0) {
+            return employees.get(0);
+        }
+        return null;
+
+    }
+
+    @Override
+    @Transactional
+    public String getDepartmentIdOfEmployee(String empId) {
+        String SqlQuery = "select department.id from Employee e where e.id='" + empId + "';";
+        List<String> stringList = (List<String>) sessionFactory.getCurrentSession().createSQLQuery(SqlQuery).list();
+        if (stringList.size() != 0) {
+            return stringList.get(0);
+        }
+        return "";
     }
 
     @Override
@@ -69,7 +89,7 @@ public class EmployeeDaoImpl implements EmployeeDao {
     @Override
     @Transactional
     public void updateEmployee(Employee employee) {
-        sessionFactory.getCurrentSession().saveOrUpdate(employee);
+        sessionFactory.getCurrentSession().update(employee);
     }
 
 }

@@ -1,6 +1,7 @@
 package it.academy.dao.interfaces;
 
 import it.academy.pojos.Employee;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -11,6 +12,9 @@ public interface EmployeeDao {
 
     //  - Get one employee
     Employee getEmployee(String id);
+
+    @Transactional
+    String getDepartmentIdOfEmployee(String empId);
 
     //  - Create employee
     String createEmployee(Employee employee);

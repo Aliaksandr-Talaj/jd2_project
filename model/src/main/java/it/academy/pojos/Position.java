@@ -1,10 +1,12 @@
 package it.academy.pojos;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import lombok.Data;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.hibernate.annotations.GenericGenerator;
+import org.hibernate.annotations.Proxy;
 
 import javax.persistence.*;
 
@@ -13,6 +15,7 @@ import javax.persistence.*;
 @Getter
 @Setter
 @Entity
+@Proxy(lazy = false)
 @Table(name = "POSITION")
 public class Position {
 
@@ -29,6 +32,7 @@ public class Position {
     private String purpose;
 
     @ManyToOne
+    @JsonBackReference
     private Employee employee;
 
 }

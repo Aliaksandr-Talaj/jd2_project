@@ -1,10 +1,12 @@
 package it.academy.pojos;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import lombok.Data;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.hibernate.annotations.GenericGenerator;
+import org.hibernate.annotations.Proxy;
 
 import javax.persistence.*;
 
@@ -12,14 +14,11 @@ import javax.persistence.*;
 @NoArgsConstructor
 @Getter
 @Setter
-@Entity
+@Embeddable
+
 public class EmailAddress {
 
-    @Id
-    @Column(name = "ID")
-    @GeneratedValue(generator = "uuid-generator")
-    @GenericGenerator(name = "uuid-generator", strategy = "uuid")
-    private String id;
+
 
     @Column(name = "EMAIL")
     private String email;
@@ -27,7 +26,6 @@ public class EmailAddress {
     @Enumerated(EnumType.STRING)
     private ContactCategory emailCategory;
 
-    @ManyToOne
-    private Employee employee;
+
 
 }

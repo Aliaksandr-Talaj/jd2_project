@@ -13,44 +13,13 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-
-public class PersonnelRestService {
-
+@RestController
+public class EmployeeRestService {
     @Autowired
     DepartmentService departmentService;
     @Autowired
     EmployeeService employeeService;
 
-    @GetMapping("/departments")
-    public List<DepartmentEmployeesPhoneNumbersDTO> getAllDepartments() {
-
-        return departmentService.findAllDepartments();
-    }
-
-    @GetMapping("/departments/{id}")
-    public ResponseEntity<Department> getDepartment(@PathVariable String id) {
-        Department department = departmentService.findDepartment(id);
-        if (department == null) {
-            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-        }
-        return new ResponseEntity<>(department, HttpStatus.OK);
-    }
-
-    @PostMapping(value = "/departments", consumes = "application/json")
-    @ApiOperation("create department")
-    public ResponseEntity<String> createDepartment(@RequestBody Department department) {
-        String id = departmentService.createDepartment(department);
-        return new ResponseEntity<>(id, HttpStatus.CREATED);
-    }
-
-    @DeleteMapping("/departments/{id}")
-    public ResponseEntity deleteDepartment(@PathVariable String id) {
-
-        if (departmentService.deleteDepartment(id)) {
-            return new ResponseEntity(HttpStatus.NO_CONTENT);
-        }
-        return new ResponseEntity(HttpStatus.NOT_FOUND);
-    }
 
     @GetMapping("/employees/{id}")
     public ResponseEntity<Employee> getEmployee(@PathVariable String id) {
@@ -71,9 +40,9 @@ public class PersonnelRestService {
     @DeleteMapping("/employees/{id}")
     public ResponseEntity deleteEmployees(@PathVariable String id) {
         if (employeeService.deleteEmployee(id)) {
-            return new ResponseEntity(HttpStatus.NO_CONTENT);
+            return new ResponseEntity<>(HttpStatus.NO_CONTENT);
         }
-        return new ResponseEntity(HttpStatus.NOT_FOUND);
+        return new ResponseEntity<>(HttpStatus.NOT_FOUND);
     }
 
     //Add employee to department PUT
@@ -85,18 +54,22 @@ public class PersonnelRestService {
         }
         Department department = departmentService.findDepartment(depId);
         Employee employee = employeeService.findEmployee(empId);
-        if (department == null || employee == null) {
-            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
-        }
+        System.out.println(department);
+        System.out.println(employee);
+//        if (department == null || employee == null) {
+//            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+//        }
         boolean success = employeeService.addEmployeeToDepartment(empId, depId);
+        System.out.println(success);
         if (success) {
-            return new ResponseEntity<>(HttpStatus.OK);
+            department = departmentService.findDepartment(depId);
+            return new ResponseEntity<>(department, HttpStatus.OK);
         }
         return new ResponseEntity<>(HttpStatus.I_AM_A_TEAPOT);
     }
 
     //Get all employees which do not belong to any department GET
-    @GetMapping("/departments/")
+    @GetMapping("/employees/")
     public List<Employee> getAllEmployeesWithoutDepartments() {
         return employeeService.findAllEmployeesWithoutDepartment();
     }
@@ -116,8 +89,10 @@ public class PersonnelRestService {
         }
         boolean success = employeeService.removeEmployeeFromDepartment(empId, depId);
         if (success) {
-            return new ResponseEntity<>(HttpStatus.OK);
+            department = departmentService.findDepartment(depId);
+            return new ResponseEntity<>(department, HttpStatus.OK);
         }
         return new ResponseEntity<>(HttpStatus.I_AM_A_TEAPOT);
     }
 }
+

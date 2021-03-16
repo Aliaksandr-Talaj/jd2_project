@@ -41,7 +41,7 @@ public class PhoneNumberDaoImpl implements PhoneNumberDao {
     public List<PhoneNumber> getPhoneNumbersOfDepartment(String depId) {
         return sessionFactory
                 .getCurrentSession()
-                .createQuery("from PhoneNumber where department_id='" + depId + "'", PhoneNumber.class)
+                .createQuery("from PhoneNumber p where p.department.id='" + depId + "'", PhoneNumber.class)
                 .list();
     }
 

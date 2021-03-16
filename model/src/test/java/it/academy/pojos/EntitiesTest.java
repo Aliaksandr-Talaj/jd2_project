@@ -51,7 +51,7 @@ public class EntitiesTest extends BaseTest {
         employee.setDepartment(department);
         employee.setDateOfEmployment(new Date(112, 12, 12));
         employee.setDateOfBirth(new Date(82, 12, 12));
-        employee.setEmailAddress(new ArrayList<EmailAddress>());
+        employee.setEmailAddress(new EmailAddress());
 
         //When
         Session session = factory.openSession();
@@ -72,33 +72,7 @@ public class EntitiesTest extends BaseTest {
 
     }
 
-    @Test
-    public void createEmailAddress() {
-        //Given
-        EmailAddress emailAddress = new EmailAddress();
-        emailAddress.setEmail("mail@mail.mail");
-        emailAddress.setEmailCategory(ContactCategory.PERSONAL);
-        Employee employee = new Employee();
-        emailAddress.setEmployee(employee);
 
-        //When
-        Session session = factory.openSession();
-        Transaction tx = null;
-        Serializable id;
-        try {
-            tx = session.beginTransaction();
-            session.save(employee);
-            id = session.save(emailAddress);
-            tx.commit();
-        } catch (Exception e) {
-            if (tx != null) tx.rollback();
-            throw e;
-        }
-        //Then
-        assertNotNull(id);
-        session.close();
-
-    }
 
     @Test
     public void createPhoneNumber() {
@@ -215,10 +189,7 @@ public class EntitiesTest extends BaseTest {
                 .createQuery("from PhoneNumber where employee_id='" + uuid + "'", PhoneNumber.class)
                 .list();
         phoneNumbers.forEach(p -> p.setEmployee(null));
-        List<EmailAddress> emailAddresses = session
-                .createQuery("from EmailAddress where employee_id='" + uuid + "'", EmailAddress.class)
-                .list();
-        emailAddresses.forEach(p -> p.setEmployee(null));
+
         List<Position> positions = session
                 .createQuery("from Position where employee_id='" + uuid + "'", Position.class)
                 .list();
@@ -228,7 +199,7 @@ public class EntitiesTest extends BaseTest {
         try {
             tx = session.beginTransaction();
             phoneNumbers.forEach(session::save);
-            emailAddresses.forEach(session::save);
+
             positions.forEach(session::save);
             session.delete(employee);
             tx.commit();
@@ -243,32 +214,7 @@ public class EntitiesTest extends BaseTest {
         deleteDataset();
     }
 
-    @Test
-    public void deleteEmailAddress() {
-        //Given:
-        cleanInsert("BaseTest.xml");
-        String uuid = "402880ec780f061f01780f0622690051";
 
-        //When:
-        Session session = factory.openSession();
-        EmailAddress emailAddress = session.get(EmailAddress.class, uuid);
-
-        Transaction tx = null;
-        try {
-            tx = session.beginTransaction();
-
-            session.delete(emailAddress);
-            tx.commit();
-        } catch (Exception e) {
-            if (tx != null) tx.rollback();
-            throw e;
-        }
-
-        // Then:
-        assertNull(session.get(EmailAddress.class, uuid));
-        session.close();
-        deleteDataset();
-    }
 
     @Test
     public void deletePhoneNumber() {
@@ -279,7 +225,7 @@ public class EntitiesTest extends BaseTest {
         //When:
         Session session = factory.openSession();
         PhoneNumber phoneNumber = session.get(PhoneNumber.class, uuid);
-
+        assertNotNull(phoneNumber);
         Transaction tx = null;
         try {
             tx = session.beginTransaction();
@@ -358,22 +304,7 @@ public class EntitiesTest extends BaseTest {
         session.close();
     }
 
-    @Test
-    public void queryEmailAddress() {
-        //Given:
-        cleanInsert("BaseTest.xml");
 
-        //When:
-        Session session = factory.openSession();
-        List<EmailAddress> emailAddresses = session
-                .createQuery("from EmailAddress where Email like '%.com'", EmailAddress.class)
-                .list();
-
-        //Then:
-        assertEquals(2, emailAddresses.size());
-        deleteDataset();
-        session.close();
-    }
 
     @Test
     public void queryPhoneNumber() {
