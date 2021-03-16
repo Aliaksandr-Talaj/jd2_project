@@ -26,7 +26,11 @@ public class EmployeeDaoImpl implements EmployeeDao {
         String query;
 
         if (departmentId == null) {
-            query = "from Employee e join fetch e.positions where e.department.id is null";
+            query =  "select * from Employee where employee.department_id is null;";
+            return (List<Employee>) sessionFactory
+                    .getCurrentSession()
+                    .createSQLQuery(query)
+                    .list();
         } else {
             query = "from Employee e join fetch e.positions where e.department.id='" + departmentId + "'";
         }

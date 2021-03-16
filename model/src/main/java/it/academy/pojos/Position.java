@@ -31,7 +31,7 @@ public class Position {
     @Column(name = "PURPOSE")
     private String purpose;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.EAGER)
     @JsonBackReference
     private Employee employee;
 

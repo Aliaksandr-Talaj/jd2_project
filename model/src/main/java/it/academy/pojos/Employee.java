@@ -45,7 +45,7 @@ public class Employee {
     private EmailAddress emailAddress;
 
 
-    @OneToMany(mappedBy = "employee")
+    @OneToMany(mappedBy = "employee", cascade = CascadeType.ALL)
     @JsonManagedReference
     private List<Position> positions;
 
