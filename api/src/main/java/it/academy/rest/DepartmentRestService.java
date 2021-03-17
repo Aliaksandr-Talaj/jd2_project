@@ -30,9 +30,9 @@ public class DepartmentRestService {
     public List<DepartmentEmployeesPhoneNumbersDTO> getAllDepartments(@RequestParam("pageNum") Integer pageNum,
                                                                       @RequestParam("pageSize") Integer pageSize
     ) {
-List<DepartmentEmployeesPhoneNumbersDTO> list = departmentService.findAllDepartments();
-        System.out.println(list.size());
-        return paginate(list ,pageNum,pageSize);
+        List<DepartmentEmployeesPhoneNumbersDTO> list = departmentService.findAllDepartments();
+
+        return paginate(list, pageNum, pageSize);
     }
 
     @GetMapping("/departments/{id}")

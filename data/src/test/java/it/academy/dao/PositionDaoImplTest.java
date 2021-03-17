@@ -13,7 +13,6 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import java.util.List;
-import java.util.Set;
 
 import static org.junit.Assert.*;
 
@@ -81,7 +80,7 @@ public class PositionDaoImplTest {
         position.setEmployee(employee);
         position1.setEmployee(employee);
         position2.setEmployee(employee);
-        List<Position> positions =List.of(position, position1, position2);
+        List<Position> positions = List.of(position, position1, position2);
         employee.setPositions(positions);
         String id;
         Session session = sessionFactory.openSession();
