@@ -43,16 +43,11 @@ public class EmployeeDaoImpl implements EmployeeDao {
     @Override
     @Transactional
     public Employee getEmployee(String id) {
-        String query = "from Employee e join fetch e.positions where e.id='" + id + "'";
-        List<Employee> employees = sessionFactory
+        String query = "from Employee e where e.id='" + id + "'";
+        return sessionFactory
                 .getCurrentSession()
                 .createQuery(query, Employee.class)
-                .list();
-
-        if (employees.size() > 0) {
-            return employees.get(0);
-        }
-        return null;
+                .uniqueResult();
 
     }
 

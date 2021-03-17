@@ -83,16 +83,17 @@ public class PersonnelRestService {
         if (depId == null || empId == null) {
             return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
         }
+
         Department department = departmentService.findDepartment(depId);
-        Employee employee = employeeService.findEmployee(empId);
-        if (department == null || employee == null) {
-            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+        if (department != null) {
+            Employee employee = employeeService.findEmployee(empId);
+            if (employee != null) {
+                if (employeeService.addEmployeeToDepartment(empId, depId)) {
+                    return new ResponseEntity<>(department, HttpStatus.OK);
+                }
+            }
         }
-        boolean success = employeeService.addEmployeeToDepartment(empId, depId);
-        if (success) {
-            return new ResponseEntity<>(HttpStatus.OK);
-        }
-        return new ResponseEntity<>(HttpStatus.I_AM_A_TEAPOT);
+        return new ResponseEntity<>(HttpStatus.NOT_FOUND);
     }
 
     //Get all employees which do not belong to any department GET
@@ -100,8 +101,8 @@ public class PersonnelRestService {
     public List<Employee> getAllEmployeesWithoutDepartments() {
         return employeeService.findAllEmployeesWithoutDepartment();
     }
-    //Remove employee from department PUT
 
+    //Remove employee from department PUT
     @PutMapping(value = "/employees/remove/{empId}/{depId}")
     public ResponseEntity<Department> removeFromDepartment(@PathVariable String depId,
                                                            @PathVariable String empId) {

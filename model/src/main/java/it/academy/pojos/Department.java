@@ -47,6 +47,6 @@ public class Department {
     @OneToMany(mappedBy = "department")
 
     @Transient
-    @ToString.Exclude
+//    @ToString.Exclude
     private List<Employee> employees;
 }

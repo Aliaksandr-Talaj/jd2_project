@@ -45,27 +45,23 @@ public class EmployeeRestService {
         return new ResponseEntity<>(HttpStatus.NOT_FOUND);
     }
 
-    //Add employee to department PUT
     @PutMapping(value = "/employees/add/{empId}/{depId}")
     public ResponseEntity<Department> addToDepartment(@PathVariable String depId,
                                                       @PathVariable String empId) {
         if (depId == null || empId == null) {
             return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
         }
+
         Department department = departmentService.findDepartment(depId);
-        Employee employee = employeeService.findEmployee(empId);
-        System.out.println(department);
-        System.out.println(employee);
-//        if (department == null || employee == null) {
-//            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
-//        }
-        boolean success = employeeService.addEmployeeToDepartment(empId, depId);
-        System.out.println(success);
-        if (success) {
-            department = departmentService.findDepartment(depId);
-            return new ResponseEntity<>(department, HttpStatus.OK);
+        if (department != null) {
+            Employee employee = employeeService.findEmployee(empId);
+            if (employee != null) {
+                if (employeeService.addEmployeeToDepartment(empId, depId)) {
+                    return new ResponseEntity<>(department, HttpStatus.OK);
+                }
+            }
         }
-        return new ResponseEntity<>(HttpStatus.I_AM_A_TEAPOT);
+        return new ResponseEntity<>(HttpStatus.NOT_FOUND);
     }
 
     //Get all employees which do not belong to any department GET
