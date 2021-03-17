@@ -1,7 +1,6 @@
 package it.academy.rest;
 
 import io.swagger.annotations.ApiOperation;
-import it.academy.dto.DepartmentEmployeesPhoneNumbersDTO;
 import it.academy.pojos.Department;
 import it.academy.pojos.Employee;
 import it.academy.service.DepartmentService;
@@ -46,8 +45,8 @@ public class EmployeeRestService {
     }
 
     @PutMapping(value = "/employees/add/{empId}/{depId}")
-    public ResponseEntity<Department> addToDepartment(@PathVariable String depId,
-                                                      @PathVariable String empId) {
+    public ResponseEntity<Employee> addToDepartment(@PathVariable String depId,
+                                                    @PathVariable String empId) {
         if (depId == null || empId == null) {
             return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
         }
@@ -57,7 +56,7 @@ public class EmployeeRestService {
             Employee employee = employeeService.findEmployee(empId);
             if (employee != null) {
                 if (employeeService.addEmployeeToDepartment(empId, depId)) {
-                    return new ResponseEntity<>(department, HttpStatus.OK);
+                    return new ResponseEntity<>(employee, HttpStatus.OK);
                 }
             }
         }
@@ -72,9 +71,8 @@ public class EmployeeRestService {
     //Remove employee from department PUT
 
     @PutMapping(value = "/employees/remove/{empId}/{depId}")
-    public ResponseEntity<Department> removeFromDepartment(@PathVariable String depId,
-                                                           @PathVariable String empId) {
-
+    public ResponseEntity<Employee> removeFromDepartment(@PathVariable String depId,
+                                                         @PathVariable String empId) {
         if (depId == null || empId == null) {
             return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
         }
@@ -86,7 +84,7 @@ public class EmployeeRestService {
         boolean success = employeeService.removeEmployeeFromDepartment(empId, depId);
         if (success) {
             department = departmentService.findDepartment(depId);
-            return new ResponseEntity<>(department, HttpStatus.OK);
+            return new ResponseEntity<>(employee, HttpStatus.OK);
         }
         return new ResponseEntity<>(HttpStatus.I_AM_A_TEAPOT);
     }

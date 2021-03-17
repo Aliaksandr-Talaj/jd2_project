@@ -27,7 +27,6 @@ public class EmployeeService {
     PositionDao positionDao;
 
 
-
     public Employee findEmployee(String id) {
         return employeeDao.getEmployee(id);
     }
@@ -69,6 +68,7 @@ public class EmployeeService {
                 }
                 employees.add(employee);
                 department.setEmployees(employees);
+                employeeDao.updateEmployee(employee);
                 departmentDao.updateDepartment(department);
                 return true;
             }
@@ -77,6 +77,7 @@ public class EmployeeService {
     }
 
     public String addNewEmployeeToDepartment(Employee employee, String departmentId) {
+
 
         String employeeId = employeeDao.createEmployee(employee);
         employee = employeeDao.getEmployee(employeeId);
@@ -93,18 +94,20 @@ public class EmployeeService {
 
     public boolean removeEmployeeFromDepartment(String employeeId, String departmentId) {
 
-        Employee employee = employeeDao.getEmployee(employeeId);
+        if (employeeId == null || departmentId == null) {
+            return false;
+        }
         Department department = departmentDao.getDepartment(departmentId);
+        if (department != null) {
+            Employee employee = findEmployee(employeeId);
+            if (employee != null) {
+                employee.setDepartment(null);
+                employeeDao.updateEmployee(employee);
+                return true;
+            }
+        }
+        return false;
 
-        List<Employee> employees = department.getEmployees();
-        employees.remove(employee);
-        department.setEmployees(employees);
-
-        departmentDao.updateDepartment(department);
-
-        return employeeDao
-                .getEmployee(employeeId)
-                .getDepartment() == null;
     }
 
     public List<Employee> findAllEmployeesWithoutDepartment() {

@@ -2,22 +2,21 @@ package it.academy.pojos;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
-import lombok.Data;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 import org.hibernate.annotations.GenericGenerator;
 import org.hibernate.annotations.Proxy;
 
 import javax.persistence.*;
 import java.sql.Date;
 import java.util.List;
+import java.util.Set;
 
 @Data
 @NoArgsConstructor
 @Getter
 @Setter
 @Entity
+@EqualsAndHashCode
 @Proxy(lazy = false)
 @Table(name = "EMPLOYEE")
 public class Employee {
@@ -36,16 +35,13 @@ public class Employee {
 
     @Column(name = "PHONE_NUMBERS")
     @OneToMany(mappedBy = "employee", fetch = FetchType.EAGER)
-
     @JsonIgnoreProperties("employee")
     private List<PhoneNumber> phoneNumbers;
-
 
     @Embedded
     private EmailAddress emailAddress;
 
-
-    @OneToMany(mappedBy = "employee", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "employee")
     @JsonManagedReference
     private List<Position> positions;
 

@@ -43,7 +43,7 @@ public class EmployeeDaoImpl implements EmployeeDao {
     @Override
     @Transactional
     public Employee getEmployee(String id) {
-        String query = "from Employee e where e.id='" + id + "'";
+        String query = "select e from Employee e left join fetch e.positions where e.id='" + id + "'";
         return sessionFactory
                 .getCurrentSession()
                 .createQuery(query, Employee.class)
