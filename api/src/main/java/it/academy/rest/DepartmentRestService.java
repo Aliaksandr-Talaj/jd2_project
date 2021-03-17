@@ -3,7 +3,6 @@ package it.academy.rest;
 import io.swagger.annotations.ApiOperation;
 import it.academy.dto.DepartmentEmployeesPhoneNumbersDTO;
 import it.academy.pojos.Department;
-import it.academy.pojos.Employee;
 import it.academy.service.DepartmentService;
 import it.academy.service.EmployeeService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,6 +10,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @RestController
@@ -24,6 +24,15 @@ public class DepartmentRestService {
     public List<DepartmentEmployeesPhoneNumbersDTO> getAllDepartments() {
 
         return departmentService.findAllDepartments();
+    }
+
+    @GetMapping("/departments/pages")
+    public List<DepartmentEmployeesPhoneNumbersDTO> getAllDepartments(@RequestParam("pageNum") Integer pageNum,
+                                                                      @RequestParam("pageSize") Integer pageSize
+    ) {
+List<DepartmentEmployeesPhoneNumbersDTO> list = departmentService.findAllDepartments();
+        System.out.println(list.size());
+        return paginate(list ,pageNum,pageSize);
     }
 
     @GetMapping("/departments/{id}")
@@ -51,6 +60,34 @@ public class DepartmentRestService {
         return new ResponseEntity(HttpStatus.NOT_FOUND);
     }
 
+    private List<DepartmentEmployeesPhoneNumbersDTO> paginate(List<DepartmentEmployeesPhoneNumbersDTO> inputList,
+                                                              Integer pageNum,
+                                                              Integer pageSize) {
+        List<DepartmentEmployeesPhoneNumbersDTO> outputList = new ArrayList<>();
+        if (inputList == null) {
+            return outputList;
+        }
+        int size = inputList.size();
+        if (size <= pageSize) {
+            return inputList;
+        }
+        if (pageNum * pageSize <= size) {
+            int i = (pageNum - 1) * pageSize;
+            do {
+                outputList.add(inputList.get(i));
+                i++;
+            } while (pageNum * pageSize > i);
+            return outputList;
+        }
+        int choppedPageSize = size % pageSize;
+        if (choppedPageSize == 0) {
+            choppedPageSize = pageSize;
+        }
 
+        for (int i = size - choppedPageSize; i < size; i++) {
+            outputList.add(inputList.get(i));
+        }
+        return outputList;
+    }
 }
 

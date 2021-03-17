@@ -1,7 +1,10 @@
 package it.academy.dao;
 
 import com.mysql.cj.jdbc.Driver;
-import it.academy.pojos.*;
+import it.academy.pojos.Department;
+import it.academy.pojos.Employee;
+import it.academy.pojos.PhoneNumber;
+import it.academy.pojos.Position;
 import org.apache.commons.dbcp2.BasicDataSource;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;

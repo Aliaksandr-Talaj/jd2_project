@@ -1,9 +1,9 @@
 package it.academy.dao;
 
-import it.academy.dao.interfaces.DepartmentDao;
 import it.academy.dao.interfaces.EmployeeDao;
 import it.academy.pojos.Department;
 import it.academy.pojos.Employee;
+import it.academy.pojos.FullName;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
@@ -13,7 +13,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
-import java.io.Serializable;
 import java.sql.Date;
 import java.util.ArrayList;
 import java.util.List;
@@ -32,12 +31,16 @@ public class EmployeeDaoImplTest {
     @Test
     public void getAllEmployeesInDepartment() {
         //Given
+
         Department department = new Department();
         Employee employee = new Employee();
+        department.setName("12");
+        employee.setFullName(new FullName());
         employee.setDepartment(department);
         Employee employee1 = new Employee();
         employee1.setDepartment(department);
         Employee employee2 = new Employee();
+        employee2.setDateOfBirth(new Date(98, 12, 12));
         employee2.setDepartment(department);
         List<Employee> employees = new ArrayList<>();
         employees.add(employee);
